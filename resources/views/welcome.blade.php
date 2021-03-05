@@ -176,11 +176,11 @@
               </div>
             </div>
 
-            <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
               <div class="info-box">
                 <i class="bx bx-envelope"></i>
                 <h3>Email Us</h3>
-                <p>contact@businessconsultantprimebrokers.com</p>
+                <p style="font-size: 13px">contact@businessconsultantprimebrokers.com</p>
               </div>
             </div>
 
