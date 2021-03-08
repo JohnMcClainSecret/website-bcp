@@ -20,7 +20,7 @@ class ContactController extends Controller
         if($contact){
             Mail::to('contact@businessconsultantprimebrokers.com')->send(new ContactMessage($contact));
         }
-        return view('welcome')->with('status', 'La ficha de pago se subió con éxito!');
+        return view('welcome')->with('status', 'Your message was sending!');
 
 
         // $secret = \config('captcha.v3');

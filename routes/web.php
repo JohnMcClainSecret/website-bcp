@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OfferController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +22,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('submitContact',[ContactController::class,'submit']);
+Route::get('getanoffer',[OfferController::class,'getanoffer']);
 Auth::routes();
-Route::group(['middleware' => 'auth'], function () {
 
-// Route::get('loginSubmit',[LoginController::class,'loginSubmit']);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('index',[UserController::class,'index'])->name('home');
+    Route::get('home',[UserController::class,'index']);
+    // Route::get('loginSubmit',[LoginController::class,'loginSubmit']);
 });

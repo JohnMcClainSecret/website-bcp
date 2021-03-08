@@ -12,7 +12,7 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background-image: url('img/slide/slide-1.jpg');">
+          <div class="carousel-item active" style="background-image: url('img/slide/banner1.jpg');">
             <div class="carousel-container">
               <div class="carousel-content container">
                 <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Business Consultant Prime</span></h2>
@@ -23,11 +23,14 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url('img/slide/banner2.png');">
+          <div class="carousel-item" style="background-image: url('img/slide/banner2.jpg');">
             <div class="carousel-container">
               <div class="carousel-content container">
                 <p class="animate__animated animate__fadeInUp">FIND YOUR NEXT PROPERTY!</p>
-                <h2 class="animate__animated animate__fadeInDown">An agent you can believe in</h2>
+                <h2 class="animate__animated animate__fadeInDown">A broker you can trust</h2>
+                <p class="animate__animated animate__fadeInUp">We work with owners from all different brands and ownership
+                    clubs to sell or rent in a quick and efficient manner.
+                </p>
                 <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
               </div>
             </div>
@@ -88,36 +91,7 @@
       </div>
     </section><!-- End About Us Section -->
 
-    <!-- ======= About Lists Section =======
-    <section id="services" class="services about-lists">
-        <div class="container">
-
-          <div class="row no-gutters">
-
-            <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
-              <span>01</span>
-              <h4>If you have question</h4>
-              <p>Nervous about your property adventure? Don’t be. Whether you're getting ready to buy or sell, in the middle of it, or just looking for some answers, our top-notch skills ensure you get the best experience possible. It’s what we love to do. </p>
-            </div>
-
-            <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="100">
-              <span>02</span>
-              <h4>Commercial, Residential, and Rentals</h4>
-              <p>Large or small, condo or mansion, we can find it and get it for you at the price that's right. TICs? Fixer-uppers? Luxury? We can help with all of it. We always have a current list of available properties for you to check out.</p>
-            </div>
-
-            <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="200">
-              <span>03</span>
-              <h4>Real Estate Done Right</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-            </div>
-
-          </div>
-
-        </div>
-    </section>End About Lists Section -->
-
-     <!-- ======= Services Section ======= -->
+    <!-- ======= Services Section ======= -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
@@ -136,28 +110,93 @@
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
-                <h4 class="title"><a href="">Real Estate Done Right</a></h4>
-                <p class="description">Nervous about your property adventure? Don’t be. Whether you're getting ready to buy or sell, in the middle of it, or just looking for some answers, our top-notch skills ensure you get the best experience possible. It’s what we love to do. </p>
+                <h4 class="title"><a href="">Realstate Done Right</a></h4>
+                <p class="description">We believe in bridging the gap between a prospect seller and an interested buyer
+                    and in creating opportunity for mutually beneficial partnerships where none has a previously existed.</p>
                 </div>
-                <!--<div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon"><i class="icofont-image"></i></div>
-                <h4 class="title"><a href="">Magni Dolores</a></h4>
-                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                </div>
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon"><i class="icofont-settings"></i></div>
-                <h4 class="title"><a href="">Nemo Enim</a></h4>
-                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-                </div>
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                <div class="icon"><i class="icofont-tasks-alt"></i></div>
-                <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                </div>-->
             </div>
         </div>
     </section><!-- End Services Section -->
 
+    <!-- ======= Our Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="section-title">
+                <h2>How do you sell your RCI or HSI timeshare</h2>
+                <p>When potential buyers see that your timeshare is affiliated with RCI or HSI, they see the value
+                    in it immediately due to the affiliation and the possibility of exchanging accommodations to visit
+                    different parts of the world every year.
+                </p>
+            </div>
+        </div>
+    </section><!-- End Our Portfolio Section -->
+
+    <!-- ======= ======= -->
+    <section >
+        <div class="container" data-aos="fade-up">
+          <div class="row no-gutters">
+            <div class="content col-xl-4 d-flex " style="align-items: center">
+              <div class="content">
+                <h3 style="color: #5c768d">Live Offer Feed</h3>
+                <p style="text-align: justify">We offers more than just timeshare resale advertising: we work with you to get your timeshare
+                seen and sold using advanced Internet marketing techniques, we target a global audience of consumers,
+                driving thousands of qualified buyers to our site daily through search engines like Google, Bing, and Yahoo..</p>
+                <p>Our live offer feed shows recent purchase offers delivered to timeshare owners just like you.</p>
+                <a href="#" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+            <div class="col-xl-8 d-flex ">
+              <div class="icon-boxes d-flex flex-column justify-content-center">
+                <div class="row">
+                    <table class="table table-hover" style="margin-left: 8rem">
+                        <thead >
+                            <tr>
+                                <th style="color: #5c768d">Resort Name</th>
+                                <th style="color: #5c768d">Type</th>
+                                <th style="color: #5c768d">Offer</th>
+                                <th style="color: #5c768d">Time Of Offer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pony </td>
+                                <td>Sale</td>
+                                <td>$1,500</td>
+                                <td> 14 minutes ago</td>
+                            </tr>
+                            <tr>
+                                <td>Pony </td>
+                                <td>Sale</td>
+                                <td>$1,500</td>
+                                <td> 14 minutes ago</td>
+                            </tr>
+                            <tr>
+                                <td>Pony </td>
+                                <td>Sale</td>
+                                <td>$1,500</td>
+                                <td> 14 minutes ago</td>
+                            </tr>
+                            <tr>
+                                <td>Pony </td>
+                                <td>Sale</td>
+                                <td>$1,500</td>
+                                <td> 14 minutes ago</td>
+                            </tr>
+                            <tr>
+                                <td>Pony </td>
+                                <td>Sale</td>
+                                <td>$1,500</td>
+                                <td> 14 minutes ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div><!-- End .content-->
+            </div>
+          </div>
+
+        </div>
+    </section><!-- End About Section -->
     <!-- ======= Contact Us Section ======= -->
     <section id="contact" class="contact">
         <div class="container">
@@ -234,6 +273,18 @@
         </div>
     </section><!-- End Contact Us Section -->
 
+    <div class="container-fluid" data-aos="zoom-in">
+        <div class="row justify-content-center">
+            <div class="col-xl-12" >
+                <div class="owl-carousel clients-carousel" style="margin: 30px 200px ">
+                    <img style="margin: 0 75px" src="img/timeshare.png" alt="">
+                    <img style="margin: 0 75px" src="img/caa.png" alt="">
+                    <img style="margin: 0 75px" src="img/tbs.png" alt="">
+                    <img style="margin: 0 75px" src="img/inc.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
   </main>
 @endsection
 
