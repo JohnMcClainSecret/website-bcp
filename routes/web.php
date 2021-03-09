@@ -23,6 +23,8 @@ Route::get('/', function () {
 });
 Route::post('submitContact',[ContactController::class,'submit']);
 Route::get('getanoffer',[OfferController::class,'getanoffer']);
+Route::get('terms',[OfferController::class,'terms']);
+Route::post('sendOffer',[OfferController::class,'sendOffer']);
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {

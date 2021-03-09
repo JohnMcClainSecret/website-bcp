@@ -84,104 +84,152 @@
         </style>
     @endpush
     <div style="margin-top: 80px">
-        <div class="container" style="background: white;width: 540px;height: 420px; margin-left: auto;
-           margin-right: auto; margin-bottom: 25px;position: relative; box-shadow: 2px 5px 20px rgba(gray, 0.5);">
-            <div class="leftbox" style="float: left; top: -5%; left: 5%; position: absolute; width: 15%;
+        <div class="container" style="background: white;width: 540px;height: 500px; margin-left: auto;
+           margin-right: auto; margin-bottom: 25px;position: relative;  box-shadow: 2px 5px 20px rgba(gray, 0.5);">
+            <div class="leftbox" style="float: left; top: -5%; left: 5%; position: relative; width: 15%;
                 height: 110%;background: #5c768d;box-shadow: 3px 3px 10px rgba(gray, 0.5);">
                 <nav>
-                    <a id="profile" class="active"><i class="icofont-ui-user"></i></a>
-                    <a id="payment"><i class="icofont-credit-card"></i></a>
-                    <a id="subscription"><i class="fa fa-tv"></i></a>
-                    <a id="privacy"><i class="fa fa-tasks"></i></a>
-                    <a id="settings"><i class="fa fa-cog"></i></a>
+                    <a type="button" id="unitInfoIcon"  onclick="continuar(0)"><i class="icofont-home"></i></a>
+                    <a  type="button"  id="membershipIcon" onclick="continuar(1)"><i class="icofont-credit-card"></i></a>
+                    <a  type="button"  id="importIcon" onclick="continuar(2)"><i class="icofont-ui-user"></i></a>
+                    <a  type="button"  id="privacy"><i class="fa fa-tasks"></i></a>
+                    <a  type="button"  id="settings"><i class="fa fa-cog"></i></a>
                 </nav>
             </div>
             <div>
-                <div style="margin-left: 120px; ">
-                    <h1 style=" color: green; font-size: 35px; ">Unit Info</h1>
-                    <div class="form-row">
-                        <input  type="radio" id="dewey" name="drone" value="dewey">
-                        <label style=" margin: -5px 10px 10px" for="dewey">Studio</label>
-                        <input type="radio" id="louie" name="drone" value="louie">
-                        <label style=" margin: -5px 10px" for="louie">1 Bdrm</label>
-                        <input type="radio" id="louie" name="drone" value="louie">
-                        <label style=" margin: -5px 10px" for="louie">2 Bdrm</label>
+                {!! Form::open(['url'=>'sendOffer','id'=>'form']) !!}
+                    <div class="row" id="unitInfo">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-11" style="margin-top: 20px">
+                            <h2 style=" color: green; font-size: 35px; text-align: center ">Unit Info</h2> <br>
+                            <input required type="radio" id="dewey" name="typeRoom" value="Studio">
+                            <label style=" margin: -5px 10px 10px" for="dewey">Studio</label>
+                            <input type="radio" id="louie" name="typeRoom" value="1bdrm">
+                            <label style=" margin: -5px 10px" for="louie">1 Bdrm</label>
+                            <input type="radio" id="louie" name="typeRoom" value="2bdrm">
+                            <label style=" margin: -5px 10px" for="louie">2 Bdrm</label>
+                            <input type="radio" id="louie" name="typeRoom" value="Villa">
+                            <label style=" margin: -5px 10px 10px" for="louie">Villa </label> <br>
+                            <input  type="radio" id="louie" name="typeRoom" value="Suit">
+                            <label style=" margin: -5px 10px 10px" for="louie">Suit</label>
+                            <input  type="radio" id="louie" name="typeRoom" value="Lockoff">
+                            <label style=" margin: -5px 10px 10px"for="louie">Lockoff</label>
+                            <input type="radio" id="louie" name="typeRoom" value="3bdrm">
+                            <label style=" margin: -5px 10px 10px" for="louie">3 Bdrm</label>
+                            <hr>
+                            <input required type="radio" id="louie" name="Weeks" value="FlotingW">
+                            <label style=" margin: -5px 10px 10px"for="louie">Floting Weeks</label>
+                            <input type="radio" id="louie" name="Weeks" value="FixedW">
+                            <label style=" margin: -5px 10px 10px" for="louie">Fixed Weeks</label>
+                            <hr>
+                            <label style=" color: gray; width: 80%;text-transform: uppercase;
+                                letter-spacing: 1px;margin-left: 2px;">Reg Weeks x year
+                            </label>
+                            {!! Form::text('RegWeeks', '', ['class'=>'form-control', 'required']) !!}
+                            <label style=" color: gray; width: 80%;text-transform: uppercase;
+                                letter-spacing: 1px;margin-left: 2px;">Additional Week
+                            </label>
+                            {!! Form::text('AdditionalWeek', '', ['class'=>'form-control','required']) !!}
+                            <button type="button" onclick="continuar(1)" style="position: relative; margin-left: 250px; margin-top: 50px" class="btn btn-info">Continuar</button>
+                        </div>
                     </div>
-                    <div class="form-row">
-                        <input type="radio" id="louie" name="drone" value="louie">
-                        <label style=" margin: -5px 10px 10px" for="louie">Villa </label>
-                        <input  type="radio" id="louie" name="drone" value="louie">
-                        <label style=" margin: -5px 10px 10px" for="louie">Suit</label>
-                        <input  type="radio" id="louie" name="drone" value="louie">
-                        <label style=" margin: -5px 10px 10px"for="louie">Lockoff</label>
-                        <input type="radio" id="louie" name="drone" value="louie">
-                        <label style=" margin: -5px 10px 10px" for="louie">3 Bdrm</label>
+                    <div class="row" id="membership" >
+                        <div class="col-md-1"></div>
+                        <div class="col-md-11" style="margin-top: 40px">
+                            {!! Form::label('Membership', 'Membership: ',["style"=>"margin-right: 15px"]) !!}
+                            <input  type="radio" id="membera" name="membership" value="Annual" >
+                            <label style=" margin: -5px 5px 10px"for="membera">Annual</label>
+                            <input type="radio" id="memberb" name="membership" value="Biannual">
+                            <label style=" margin: -5px 5px 10px" for="memberb">Biannual</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label style=" color: gray; width: 80%;text-transform: uppercase;
+                                        letter-spacing: 1px;margin-left: 2px;">Amount of Points
+                                    </label>
+                                    {!! Form::text('AmountPoints', '', ['class'=>'form-control']) !!}
+                                </div>
+                                <div class="col-md-6">
+                                    <label style=" color: gray; width: 80%;text-transform: uppercase;
+                                        letter-spacing: 1px;margin-left: 2px;">Years remain
+                                    </label>
+                                    {!! Form::text('YearRemain', '', ['class'=>'form-control','style'=>'margin-top: 23px']) !!}
+                                </div>
+                            </div>
+                            <hr>
+                            {!! Form::label('Season', 'Season: ',["style"=>"margin-right: 15px"]) !!}
+                            <input  type="radio" id="seasonR" name="season" value="Red" >
+                            <label style=" margin: -5px 5px 10px"for="seasonR">Red</label>
+                            <input type="radio" id="seasonB" name="season" value="Blue">
+                            <label style=" margin: -5px 5px 10px" for="seasonB">Blue</label>
+                            <input type="radio" id="seasonW" name="season" value="White">
+                            <label style=" margin: -5px 5px 10px" for="seasonW">White</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label style=" color: gray; width: 80%;text-transform: uppercase;
+                                        letter-spacing: 1px;margin-left: 2px;">Other
+                                    </label>
+                                    {!! Form::text('OtherSeason', '', ['class'=>'form-control']) !!}
+                                </div>
+                                <div class="col-md-6">
+                                    <label style=" color: gray; width: 80%;text-transform: uppercase;
+                                        letter-spacing: 1px;margin-left: 2px;">Maint Fee
+                                    </label>
+                                    {!! Form::text('MaintFee', '', ['class'=>'form-control']) !!}
+                                </div>
+                            </div>
+                            <hr>
+                            {!! Form::label('Exchange', 'Exchange Company: ',["style"=>"margin-right: 15px"]) !!}
+                            <input  type="radio" id="RCI" name="exchCompany" value="RCI" >
+                            <label style=" margin: -5px 5px 10px"for="RCI">RCI</label>
+                            <input type="radio" id="HSI" name="exchCompany" value="HSI">
+                            <label style=" margin: -5px 5px 10px" for="HSI">HSI</label>
+                            <input type="radio" id="II" name="exchCompany" value="II">
+                            <label style=" margin: -5px 5px 10px" for="II">II</label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label style=" color: gray; width: 80%;text-transform: uppercase;
+                                        letter-spacing: 1px;margin-left: 2px;">Other
+                                    </label>
+                                    {!! Form::text('OtherExch', '', ['class'=>'form-control']) !!}
+                                </div>
+                            </div>
+                            <button type="button" onclick="continuar(2)" style="position: relative; margin-left: 250px; margin-top: 10px" class="btn btn-info">Continuar</button>
+                        </div>
                     </div>
-                    <hr>
-                    <div class="form-row">
-                        <input  type="radio" id="louie" name="drone" value="louie">
-                        <label style=" margin: -5px 10px 10px"for="louie">Floting Weeks</label>
-                        <input type="radio" id="louie" name="drone" value="louie">
-                        <label style=" margin: -5px 10px 10px" for="louie">Fixed Weeks</label>
-                    </div>
-                    <label style=" color: gray; width: 80%;text-transform: uppercase;
-                        letter-spacing: 1px;margin-left: 2px;">Reg Weeks x year
-                    </label>
-                    {!! Form::text('RegWeeks', '', ['class'=>'form-control']) !!}
-                    <label style=" color: gray; width: 80%;text-transform: uppercase;
-                        letter-spacing: 1px;margin-left: 2px;">Additional Week
-                    </label>
-                    {!! Form::text('RegWeeks', '', ['class'=>'form-control']) !!}
-                    <button type="button" style="position: relative; margin-left: 250px; margin-top: 10px" class="btn btn-info">Continuar</button>
-                </div>
-                {{-- <div class="payment noshow">
-                    <div class="form-row">
-                        {!! Form::label('Membership', 'Membership: ') !!}
-                        <label style=" color: gray; width: 80%;text-transform: uppercase;
-                            letter-spacing: 1px;margin-left: 2px;">Additional Week
-                        </label>
-                    </div>
+                    <div class="row" id="import">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-11" style="margin-top: 15px">
+                            <h2 style=" color: green; font-size: 25px; text-align: center ">Important Info</h2>
+                            {!! Form::text('Benefits', '', ['class'=>'form-group form-control','placeholder'=>'Benefits']) !!}
+                            {!! Form::text('ResortName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Resort Name']) !!}
+                            {!! Form::text('Location', '', ['class'=>'form-control form-group ','placeholder'=>'Location']) !!}
+                            {!! Form::email('Email', '', ['class'=>'form-control form-group ','required','placeholder'=>'Email']) !!}
+                            {!! Form::text('OwnerName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Owner Name']) !!}
+                            <div class="row">
 
-                </div> --}}
-                {{-- <div >
-                    <h1>Your Subscription</h1>
-                    <h2>Payment Date</h2>
-                    <p>05-15-2018 <button class="btn">pay now</button></p>
-                    <h2>Your Next Charge</h2>
-                    <p>$8.48<span> includes tax</span></p>
-                    <h2>Hulu Base Plan</h2>
-                    <p>Limited Commercials <button class="btn">change plan</button></p>
-                    <h2>Add-ons</h2>
-                    <p>None <button class="btn">manage</button></p>
-                    <h2>Monthly Recurring Total </h2>
-                    <p>$7.99/month</p>
-                </div>
-                <div >
-                    <h1>Privacy Settings</h1>
-                    <h2>Manage Email Notifications<button class="btn">manage</button></h2>
-                    <p></p>
-                    <h2>Manage Privacy Settings<button class="btn">manage</button></h2>
-                    <p></p>
-                    <h2>View Terms of Use <button class="btn">view</button></h2>
-                    <p></p>
-                    <h2>Personalize Ad Experience <button class="btn">update</button></h2>
-                    <p></p>
-                    <h2>Protect Your Account <button class="btn">protect</button></h2>
-                    <p></p>
-                </div>
-                <div >
-                    <h1>Account Settings</h1>
-                    <h2>Sync Watchlist to My Stuff<button class="btn">sync</button></h2>
-                    <p></p>
-                    <h2>Hold Your Subscription<button class="btn">hold</button></h2>
-                    <p></p>
-                    <h2>Cancel Your Subscription <button class="btn">cancel</button></h2>
-                    <p></p>
-                    <h2>Your Devices <button class="btn">Manage Devices</button></h2>
-                    <p></p>
-                    <h2>Referrals <button class="btn">get $10</button></h2>
-                    <p></p>
-                </div> --}}
+                                <div class="col-md-6">
+                                    {!! Form::text('Phone', '', ['class'=>'form-control form-group ','placeholder'=>'Phone/Home','required']) !!}
+                                </div>
+                                <div class="col-md-6">
+                                    {!! Form::text('Availability', '', ['class'=>'form-control form-group','placeholder'=>'Availability']) !!}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {!! Form::text('Selling', '', ['class'=>'form-control','placeholder'=>'Selling $','required']) !!}
+                                </div>
+                                <div class="col-md-6">
+                                    {!! Form::text('Rental', '', ['class'=>'form-control', 'placeholder'=>'Rental $','required']) !!}
+                                </div>
+                            </div>
+                            <div style="align-items: right">
+                                <a href="{{ url('terms')}}">Accept Terms and Conditions </a>
+                                {!! Form::checkbox('Terms', '1',  ['class'=>'form-control','required']) !!}
+                            </div>
+                            <button type="submit" onclick="continuar(3)" style="position: relative; margin-left: 250px; margin-top: 13px" class="btn btn-info">Continuar</button>
+                        </div>
+                    </div>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
@@ -191,33 +239,58 @@
     <script>
         /*active button class onclick*/
         $('nav a').click(function(e) {
-        e.preventDefault();
-        $('nav a').removeClass('active');
-        $(this).addClass('active');
-        if(this.id === !'payment'){
-            $('.payment').addClass('noshow');
-        }
-        else if(this.id === 'payment') {
-            $('.payment').removeClass('noshow');
-            $('.rightbox').children().not('.payment').addClass('noshow');
-        }
-        else if (this.id === 'profile') {
-            $('.profile').removeClass('noshow');
-            $('.rightbox').children().not('.profile').addClass('noshow');
-        }
-        else if(this.id === 'subscription') {
-            $('.subscription').removeClass('noshow');
-            $('.rightbox').children().not('.subscription').addClass('noshow');
-        }
-            else if(this.id === 'privacy') {
-            $('.privacy').removeClass('noshow');
-            $('.rightbox').children().not('.privacy').addClass('noshow');
-        }
-        else if(this.id === 'settings') {
-            $('.settings').removeClass('noshow');
-            $('.rightbox').children().not('.settings').addClass('noshow');
-        }
+            e.preventDefault();
+            $('nav a').removeClass('active');
+            $(this).addClass('active');
+            if(this.id === !'payment'){
+                $('.payment').addClass('noshow');
+            }
+            else if(this.id === 'payment') {
+                $('.payment').removeClass('noshow');
+                $('.rightbox').children().not('.payment').addClass('noshow');
+            }
+            else if (this.id === 'profile') {
+                $('.profile').removeClass('noshow');
+                $('.rightbox').children().not('.profile').addClass('noshow');
+            }
+            else if(this.id === 'subscription') {
+                $('.subscription').removeClass('noshow');
+                $('.rightbox').children().not('.subscription').addClass('noshow');
+            }
+                else if(this.id === 'privacy') {
+                $('.privacy').removeClass('noshow');
+                $('.rightbox').children().not('.privacy').addClass('noshow');
+            }
+            else if(this.id === 'settings') {
+                $('.settings').removeClass('noshow');
+                $('.rightbox').children().not('.settings').addClass('noshow');
+            }
         });
+        $('document').ready(function(){
+            $('#membership').hide();
+            $('#import').hide();
+        })
+        function continuar(val){
+            if(val == 1){
+                $('#unitInfo').hide();
+                // $('#unitInfoIcon').removeClass('active');
+                $('#membershipIcon').addClass('active');
+                $('#membership').show();
+                $('#import').hide();
+            }else if (val == 2){
+                $('#unitInfo').hide();
+                // $('#membershipIcon').removeClass('active');
+                $('#importIcon').addClass('active');
+                $('#membership').hide();
+                $('#import').show();
+            }else if(val == 0){
+                $('#unitInfo').show();
+                // $('#unitInfoIcon').removeClass('active');
+                $('#unitInfoIcon').addClass('active');
+                $('#membership').hide();
+                $('#import').hide();
+            }
+        }
     </script>
 @endsection
 {{-- https://codepen.io/juliepark/pen/pLMxoP --}}
