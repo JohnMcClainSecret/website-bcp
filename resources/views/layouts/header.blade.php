@@ -12,7 +12,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="{{ url('getanoffer')}}">Get an Offer</a></li>
-            <li><a href="{{ route('login')}}">Login</a></li>
+            {{-- <li><a href="{{ route('login')}}">Login</a></li> --}}
             {{-- <li><a href="#team">Team</a></li>
             <li class="drop-down"><a href="">Drop Down</a>
                 <ul>

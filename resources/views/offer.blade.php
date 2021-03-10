@@ -27,7 +27,7 @@
             .active {
             color: aqua;
             }
-            p {
+            /* p {
                 border-width: 1px;
                 border-style: solid;
                 border-image: linear-gradient( right,rgb(9, 170, 170), rgba(rgb(77, 165, 113), 0.5)) 1 0%;
@@ -36,7 +36,7 @@
                 font-size: 0.7em;
                 padding: 7px 0;
                 color: black;
-            }
+            } */
             span {
                 font-size: 0.5em;
                 color: gray;
@@ -130,7 +130,7 @@
                                 letter-spacing: 1px;margin-left: 2px;">Additional Week
                             </label>
                             {!! Form::text('AdditionalWeek', '', ['class'=>'form-control','required']) !!}
-                            <button type="button" onclick="continuar(1)" style="position: relative; margin-left: 250px; margin-top: 50px" class="btn btn-info">Continuar</button>
+                            <button type="button" onclick="continuar(1)" style="position: relative; margin-left: 250px; margin-top: 50px" class="btn btn-info">Continue</button>
                         </div>
                     </div>
                     <div class="row" id="membership" >
@@ -193,7 +193,7 @@
                                     {!! Form::text('OtherExch', '', ['class'=>'form-control']) !!}
                                 </div>
                             </div>
-                            <button type="button" onclick="continuar(2)" style="position: relative; margin-left: 250px; margin-top: 10px" class="btn btn-info">Continuar</button>
+                            <button type="button" onclick="continuar(2)" style="position: relative; margin-left: 250px; margin-top: 10px" class="btn btn-info">Continue</button>
                         </div>
                     </div>
                     <div class="row" id="import">
@@ -226,7 +226,7 @@
                                 <a href="{{ url('terms')}}">Accept Terms and Conditions </a>
                                 {!! Form::checkbox('Terms', '1',  ['class'=>'form-control','required']) !!}
                             </div>
-                            <button type="submit" onclick="continuar(3)" style="position: relative; margin-left: 250px; margin-top: 13px" class="btn btn-info">Continuar</button>
+                            <button type="submit" onclick="continuar(3)" style="position: relative; margin-left: 250px; margin-top: 13px" class="btn btn-info">Continue</button>
                         </div>
                     </div>
                 {!! Form::close() !!}
