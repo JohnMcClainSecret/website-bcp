@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Contact;
+use App\Models\LiveOffer;
+use App\Mail\ContactMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMessage;
 
 class ContactController extends Controller
 {
@@ -34,5 +35,10 @@ class ContactController extends Controller
         //     'payload' => $response->body(),
         // ]);
 
+    }
+
+    public function welcome(){
+        $offers = LiveOffer::all();
+        return view('welcome',compact('offers'));
     }
 }

@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[ContactController::class,'welcome'] );
 Route::post('submitContact',[ContactController::class,'submit']);
 Route::get('getanoffer',[OfferController::class,'getanoffer']);
 Route::get('terms',[OfferController::class,'terms']);

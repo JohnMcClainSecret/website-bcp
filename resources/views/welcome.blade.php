@@ -1,3 +1,6 @@
+@php
+    use \Carbon\Carbon;
+@endphp
 @extends('layouts.template')
 
 @section('content')
@@ -139,8 +142,8 @@
               <div class="content">
                 <h3 style="color: #5c768d">Live Offer Feed</h3>
                 <p style="text-align: justify">We offers more than just timeshare resale advertising: we work with you to get your timeshare
-                seen and sold using advanced Internet marketing techniques, we target a global audience of consumers,
-                driving thousands of qualified buyers to our site daily through search engines like Google, Bing, and Yahoo..</p>
+                    seen and sold using advanced Internet marketing techniques, we target a global audience of consumers,
+                    driving thousands of qualified buyers to our site daily through search engines like Google, Bing, and Yahoo..</p>
                 <p>Our live offer feed shows recent purchase offers delivered to timeshare owners just like you.</p>
                 <a href="#" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
               </div>
@@ -158,36 +161,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Pony </td>
-                                <td>Sale</td>
-                                <td>$1,500</td>
-                                <td> 14 minutes ago</td>
-                            </tr>
-                            <tr>
-                                <td>Pony </td>
-                                <td>Sale</td>
-                                <td>$1,500</td>
-                                <td> 14 minutes ago</td>
-                            </tr>
-                            <tr>
-                                <td>Pony </td>
-                                <td>Sale</td>
-                                <td>$1,500</td>
-                                <td> 14 minutes ago</td>
-                            </tr>
-                            <tr>
-                                <td>Pony </td>
-                                <td>Sale</td>
-                                <td>$1,500</td>
-                                <td> 14 minutes ago</td>
-                            </tr>
-                            <tr>
-                                <td>Pony </td>
-                                <td>Sale</td>
-                                <td>$1,500</td>
-                                <td> 14 minutes ago</td>
-                            </tr>
+                            @foreach ($offers as $offer)
+                                @php
+                                    $now = Carbon::now();
+                                    $created = Carbon::parse($offer->created_at);
+                                    $diff = $created->diffForHumans($now);
+                                @endphp
+                                <tr>
+                                    <td>{{ $offer->ResortName}} </td>
+                                    <td>{{$offer->Type}}</td>
+                                    <td>$ {{$offer->Offer}}</td>
+                                    <td> {{$diff}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
