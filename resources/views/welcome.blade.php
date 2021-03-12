@@ -75,8 +75,8 @@
       <div class="container">
 
         <div class="row no-gutters">
-            <div class="col-lg-6 video-box">
-                <img src="img/aboutus.jpg" class="img-fluid" alt="">
+            <div class="col-lg-6 video-box" style="margin-top: 25px">
+                <img src="{{ asset('img/5.jpeg')}}" class="img-fluid" alt="">
                 <!--<a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>-->
             </div>
 
@@ -161,19 +161,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($offers as $offer)
-                                @php
-                                    $now = Carbon::now();
-                                    $created = Carbon::parse($offer->created_at);
-                                    $diff = $created->diffForHumans($now);
-                                @endphp
-                                <tr>
-                                    <td>{{ $offer->ResortName}} </td>
-                                    <td>{{$offer->Type}}</td>
-                                    <td>$ {{$offer->Offer}}</td>
-                                    <td> {{$diff}}</td>
-                                </tr>
-                            @endforeach
+                            @isset($offers)
+                                @foreach ($offers as $offer)
+                                    @php
+                                        $now = Carbon::now();
+                                        $created = Carbon::parse($offer->created_at);
+                                        $diff = $created->diffForHumans($now);
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $offer->ResortName}} </td>
+                                        <td>{{$offer->Type}}</td>
+                                        <td>$ {{$offer->Offer}}</td>
+                                        <td> {{$diff}}</td>
+                                    </tr>
+                                @endforeach
+                            @endisset
                         </tbody>
                     </table>
                 </div>
