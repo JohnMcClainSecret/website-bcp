@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/',[ContactController::class,'welcome'] );
+Route::get('error',[ContactController::class,'errorpage'] );
 Route::post('submitContact',[ContactController::class,'submit']);
 Route::get('getanoffer',[OfferController::class,'getanoffer']);
 Route::get('terms',[OfferController::class,'terms']);

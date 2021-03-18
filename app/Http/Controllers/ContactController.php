@@ -20,25 +20,18 @@ class ContactController extends Controller
 
         if($contact){
             Mail::to('contact@businessconsultantprimebrokers.com')->send(new ContactMessage($contact));
+            return back();
+        }else{
+            return view('errorpage');
         }
-        return view('welcome')->with('status', 'Your message was sending!');
-
-
-        // $secret = \config('captcha.v3');
-
-        // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-        //     'secret' => $secret,
-        //     'response' => $request['g-recaptcha-response'],
-        // ]);
-
-        // session()->put([
-        //     'payload' => $response->body(),
-        // ]);
 
     }
 
     public function welcome(){
         $offers = LiveOffer::all();
         return view('welcome',compact('offers'));
+    }
+    public function errorPage(){
+        return view('errorpage');
     }
 }

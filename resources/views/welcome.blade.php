@@ -245,7 +245,10 @@
                         <div class="sent-message">Your message has been sent. Thank you!</div>
                     </div> --}}
                     <div class="text-center">
-                        <button type="submit" class="btn btn-info">Submit</button>
+                        <button class="g-recaptcha"
+                            data-sitekey="6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9"
+                            data-callback='onSubmit'
+                            data-action='submit' type="submit" >Submit</button>
                     </div>
                 {!! Form::close() !!}
 
@@ -278,6 +281,12 @@
 
 @section('scripts')
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function onSubmit(token) {
+          document.getElementById("demo-form").submit();
+        }
+    </script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         function onSubmit(token) {

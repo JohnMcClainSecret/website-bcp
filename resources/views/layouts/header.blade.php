@@ -4,7 +4,7 @@
         <div class="logo float-left">
                 {{-- <h1 class="text-light" style="margin-top: 20px"><a href="/"><span>BCP Broker</span></a></h1> --}}
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="/"><img src="{{ asset('img/logo.png')}}" alt="" class="img-fluid"></a>
+            <a href="/"><img src="{{ asset('img/logo2.png')}}" alt="" class="img-fluid"></a>
         </div>
         <nav class="nav-menu float-right d-none d-lg-block" style="margin-top: 25px">
             <ul>
