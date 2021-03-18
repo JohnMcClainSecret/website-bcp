@@ -239,25 +239,11 @@
                         <textarea class="form-control" name="message" rows="5" data-rule="required" style="resize: none" data-msg="Please write something for us" placeholder="Message"></textarea>
                     <div class="validate"></div>
                     </div>
-                    {{-- <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        {{-- <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                    </div> --}}
+                    {!! Form::hidden('Token', '', ['id'=>'token']) !!}
                     <div class="text-center">
-                        <button class="g-recaptcha"
-                            data-sitekey="6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9"
-                            data-callback='onSubmit'
-                            data-action='submit' type="submit" >Submit</button>
+                        <button class="btn btn-info" data-action='submit' >Submit</button>
                     </div>
                 {!! Form::close() !!}
-
-              {{-- @if(Session::has('payload'))
-                <div class="mt-3 alert alert-primary" role="alert">
-                    <h5>{{ Session::get('payload') }}</h5>
-                </div>
-              {{ Session::forget('payload') }}
-            @endif --}}
             </div>
           </div>
 
@@ -280,19 +266,18 @@
 @endsection
 
 @section('scripts')
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9"></script>
     <script>
-        function onSubmit(token) {
-          document.getElementById("demo-form").submit();
-        }
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9', {action: 'homepage'}).then(function(token) {
+                document.getElementById('token').value = token;
+            });
+        });
     </script>
+
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        function onSubmit(token) {
-          document.getElementById("demo-form").submit();
-        }
-
         $(document).ready(function(){
             setTimeout(function() {
                 $("#msgAlert").fadeOut();

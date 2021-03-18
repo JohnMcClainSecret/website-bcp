@@ -125,11 +125,11 @@
                             <label style=" color: gray; width: 80%;text-transform: uppercase;
                                 letter-spacing: 1px;margin-left: 2px;">Reg Weeks x year
                             </label>
-                            {!! Form::text('RegWeeks', '', ['class'=>'form-control', 'required']) !!}
+                            {!! Form::number('RegWeeks', '', ['class'=>'form-control', 'required']) !!}
                             <label style=" color: gray; width: 80%;text-transform: uppercase;
                                 letter-spacing: 1px;margin-left: 2px;">Additional Week
                             </label>
-                            {!! Form::text('AdditionalWeek', '', ['class'=>'form-control','required']) !!}
+                            {!! Form::number('AdditionalWeek', '', ['class'=>'form-control','required']) !!}
                             <button type="button" onclick="continuar(1)" style="position: relative; margin-left: 250px; margin-top: 50px" class="btn btn-info">Continue</button>
                         </div>
                     </div>
@@ -146,13 +146,13 @@
                                     <label style=" color: gray; width: 80%;text-transform: uppercase;
                                         letter-spacing: 1px;margin-left: 2px;">Amount of Points
                                     </label>
-                                    {!! Form::text('AmountPoints', '', ['class'=>'form-control']) !!}
+                                    {!! Form::number('AmountPoints', '', ['class'=>'form-control']) !!}
                                 </div>
                                 <div class="col-md-6">
                                     <label style=" color: gray; width: 80%;text-transform: uppercase;
                                         letter-spacing: 1px;margin-left: 2px;">Years remain
                                     </label>
-                                    {!! Form::text('YearRemain', '', ['class'=>'form-control','style'=>'margin-top: 23px']) !!}
+                                    {!! Form::number('YearRemain', '', ['class'=>'form-control','style'=>'margin-top: 23px']) !!}
                                 </div>
                             </div>
                             <hr>
@@ -174,7 +174,7 @@
                                     <label style=" color: gray; width: 80%;text-transform: uppercase;
                                         letter-spacing: 1px;margin-left: 2px;">Maint Fee
                                     </label>
-                                    {!! Form::text('MaintFee', '', ['class'=>'form-control']) !!}
+                                    {!! Form::number('MaintFee', '', ['class'=>'form-control']) !!}
                                 </div>
                             </div>
                             <hr>
@@ -214,19 +214,20 @@
                                     {!! Form::text('Availability', '', ['class'=>'form-control form-group','placeholder'=>'Availability']) !!}
                                 </div>
                             </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-md-6">
-                                    {!! Form::text('Selling', '', ['class'=>'form-control','placeholder'=>'Selling $','required']) !!}
+                                    {!! Form::number('Selling', '', ['class'=>'form-control','placeholder'=>'Selling $','required']) !!}
                                 </div>
                                 <div class="col-md-6">
-                                    {!! Form::text('Rental', '', ['class'=>'form-control', 'placeholder'=>'Rental $','required']) !!}
+                                    {!! Form::number('Rental', '', ['class'=>'form-control', 'placeholder'=>'Rental $','required']) !!}
                                 </div>
-                            </div>
+                            </div> --}}
                             <div style="align-items: right">
                                 <a href="{{ url('terms')}}">Accept Terms and Conditions </a>
                                 {!! Form::checkbox('Terms', '1',  ['class'=>'form-control','required']) !!}
                             </div>
-                            <button type="submit" onclick="continuar(3)" style="position: relative; margin-left: 250px; margin-top: 13px" class="btn btn-info">Continue</button>
+                            {!! Form::hidden('Token', '', ['id'=>'token']) !!}
+                            <button type="submit" onclick="continuar(3)" style="position: relative; margin-left: 250px; margin-top: 51px" class="btn btn-info">Continue</button>
                         </div>
                     </div>
                 {!! Form::close() !!}
@@ -292,5 +293,13 @@
             }
         }
     </script>
+       <script src="https://www.google.com/recaptcha/api.js?render=6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9"></script>
+       <script>
+           grecaptcha.ready(function() {
+               grecaptcha.execute('6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9', {action: 'homepage'}).then(function(token) {
+                   document.getElementById('token').value = token;
+               });
+           });
+       </script>
 @endsection
 {{-- https://codepen.io/juliepark/pen/pLMxoP --}}

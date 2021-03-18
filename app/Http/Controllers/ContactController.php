@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\LiveOffer;
+use App\Models\Newsletter as NewsletterModel;
 use App\Mail\ContactMessage;
+use App\Mail\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -12,19 +14,22 @@ class ContactController extends Controller
     public function submit(Request $request){
         $contact = new Contact();
 
-        $contact->Name = $request->name;
-        $contact->Email = $request->email;
-        $contact->Subject = $request->subject;
-        $contact->Message = $request->message;
-        $contact->save();
+        if($request->Token != null){
+            $contact->Name = $request->name;
+            $contact->Email = $request->email;
+            $contact->Subject = $request->subject;
+            $contact->Message = $request->message;
+            $contact->save();
 
-        if($contact){
-            Mail::to('contact@businessconsultantprimebrokers.com')->send(new ContactMessage($contact));
-            return back();
+            if($contact){
+                Mail::to('contact@businessconsultantprimebrokers.com')->send(new ContactMessage($contact));
+                return back();
+            }else{
+                return view('errorpage');
+            }
         }else{
             return view('errorpage');
         }
-
     }
 
     public function welcome(){
@@ -33,5 +38,19 @@ class ContactController extends Controller
     }
     public function errorPage(){
         return view('errorpage');
+    }
+
+    public function newsletter(Request $request){
+        $news = new NewsletterModel();
+
+        $news->Email = $request->email;
+        $news->save();
+
+        if($news){
+            Mail::to($news->Email)->send(new Newsletter());
+            return back();
+        }else{
+            return view('errorpage');
+        }
     }
 }

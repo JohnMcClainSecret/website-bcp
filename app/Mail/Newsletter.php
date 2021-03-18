@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MailGetOffer extends Mailable
+class Newsletter extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,10 +16,9 @@ class MailGetOffer extends Mailable
      *
      * @return void
      */
-    public $msg;
-    public function __construct($message)
+  
+    public function __construct()
     {
-        $this->msg = $message;
     }
 
     /**
@@ -29,11 +28,6 @@ class MailGetOffer extends Mailable
      */
     public function build()
     {
-        try {
-            return $this->view('offerMsg');
-        } catch (\Throwable $th) {
-            return view('errorpage');
-        }
-
+        return $this->view('mails.newsletter');
     }
 }
