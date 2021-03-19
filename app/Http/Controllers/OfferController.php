@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\GetOffer;
 use App\Mail\MailGetOffer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 
 class OfferController extends Controller
@@ -45,7 +46,7 @@ class OfferController extends Controller
             $offer->save();
             if($offer){
                 Mail::to('contact@businessconsultantprimebrokers.com')->send(new MailGetOffer($offer));
-                return back();
+                return  Redirect::back()->with('status', 'This request was successfully sent !');
             }else{
                 return view('errorpage');
             }

@@ -31,7 +31,7 @@ class ContactMessage extends Mailable
     public function build()
     {
          try {
-            return $this->view('message');
+            return $this->view('mails.message');
          } catch (\Throwable $th) {
             return view('errorpage');
          }

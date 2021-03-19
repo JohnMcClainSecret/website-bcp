@@ -4,7 +4,11 @@
 @extends('layouts.template')
 
 @section('content')
-
+    @if(session('status'))
+        <div class="alert alert-success" id="msgAlert" style="width:100%; " id="alert">
+            {{ session('status') }}
+        </div>
+    @endif
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
@@ -65,11 +69,6 @@
     </div>
   </section><!-- End Hero -->
   <main id="main">
-    @if(session('status'))
-        <div class="alert alert-success" id="msgAlert" style="width: 500px; margin-left: 350px" id="alert">
-            {{ session('status') }}
-        </div>
-    @endif
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
       <div class="container">
@@ -113,7 +112,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
-                <h4 class="title"><a href="">Realstate Done Right</a></h4>
+                <h4 class="title"><a href="">Timeshare resale done right</a></h4>
                 <p class="description">We believe in bridging the gap between a prospect seller and an interested buyer
                     and in creating opportunity for mutually beneficial partnerships where none has a previously existed.</p>
                 </div>
@@ -274,15 +273,13 @@
             });
         });
     </script>
-
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function(){
+            $('#msgAlert').fadeIn();
             setTimeout(function() {
                 $("#msgAlert").fadeOut();
-            },3500);
+            },2500);
         })
     </script>
-
 @endsection

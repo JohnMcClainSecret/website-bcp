@@ -30,7 +30,7 @@ class MailGetOffer extends Mailable
     public function build()
     {
         try {
-            return $this->view('offerMsg');
+            return $this->view('mails.offerMsg');
         } catch (\Throwable $th) {
             return view('errorpage');
         }
