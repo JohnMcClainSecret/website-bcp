@@ -20,7 +20,7 @@ class OfferController extends Controller
     public function sendOffer(Request $request){
         $offer = new GetOffer();
 
-        if($request->Token != null){
+        // if($request->Token != null){
             $offer->typeRoom = $request->typeRoom;
             $offer->Weeks = $request->Weeks;
             $offer->AdditionalWeek = $request->AdditionalWeek;
@@ -43,15 +43,17 @@ class OfferController extends Controller
             $offer->Selling = $request->Selling;
             $offer->Rental = $request->Rental;
             $offer->Terms = $request->Terms;
+            $offer->Broker = $request->Broker;
             $offer->save();
+
             if($offer){
                 Mail::to('contact@businessconsultantprimebrokers.com')->send(new MailGetOffer($offer));
                 return  Redirect::back()->with('status', 'This request was successfully sent !');
             }else{
                 return view('errorpage');
             }
-        }else{
-            return view('errorpage');
-        }
+        // }else{
+        //     return view('errorpage');
+        // }
     }
 }

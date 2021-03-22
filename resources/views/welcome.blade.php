@@ -173,15 +173,16 @@
                             @isset($offers)
                                 @foreach ($offers as $offer)
                                     @php
-                                        $now = Carbon::now();
-                                        $created = Carbon::parse($offer->created_at);
-                                        $diff = $created->diffForHumans($now);
+                                        // $now = Carbon::now();
+                                        // $created = Carbon::parse($offer->created_at);
+                                        // $diff = $created->diffForHumans($now);
+                                        $date = Carbon::parse($offer->TimeOffer)->format('m-d-Y');
                                     @endphp
                                     <tr>
                                         <td>{{ $offer->ResortName}} </td>
                                         <td>{{$offer->Type}}</td>
                                         <td>$ {{$offer->Offer}}</td>
-                                        <td> {{$diff}}</td>
+                                        <td> {{$date}}</td>
                                     </tr>
                                 @endforeach
                             @endisset
@@ -224,7 +225,7 @@
               <div class="info-box ">
                 <i class="bx bx-phone-call"></i>
                 <h3>Call Us</h3>
-                <p>13123130440</p>
+                <p> </p>
               </div>
             </div>
 

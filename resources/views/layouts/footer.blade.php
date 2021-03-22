@@ -9,7 +9,7 @@
             <p>
               ONE SEAPORT PLAZA <br>
               199 Water Street, New York, New York, 10038<br><br>
-              <strong>Phone:</strong> 13123130440<br>
+              <strong>Phone:</strong> <br>
               <strong>Email:</strong> contact@businessconsultantprimebrokers.com <br>
             </p>
           </div>

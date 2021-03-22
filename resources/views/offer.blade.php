@@ -84,7 +84,7 @@
         </style>
     @endpush
     <div style="margin-top: 80px">
-        <div class="container" style="background: white;width: 540px;height: 500px; margin-left: auto;
+        <div class="container" style="background: white;width: 600px;height: 500px; margin-left: auto;
            margin-right: auto; margin-bottom: 25px;position: relative;  box-shadow: 2px 5px 20px rgba(gray, 0.5);">
             <div class="leftbox" style="float: left; top: -5%; left: 5%; position: relative; width: 15%;
                 height: 110%;background: #5c768d;box-shadow: 3px 3px 10px rgba(gray, 0.5);">
@@ -206,7 +206,6 @@
                             {!! Form::email('Email', '', ['class'=>'form-control form-group ','required','placeholder'=>'Email']) !!}
                             {!! Form::text('OwnerName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Owner Name']) !!}
                             <div class="row">
-
                                 <div class="col-md-6">
                                     {!! Form::text('Phone', '', ['class'=>'form-control form-group ','placeholder'=>'Phone/Home','required']) !!}
                                 </div>
@@ -214,20 +213,15 @@
                                     {!! Form::text('Availability', '', ['class'=>'form-control form-group','placeholder'=>'Availability']) !!}
                                 </div>
                             </div>
-                            {{-- <div class="row">
-                                <div class="col-md-6">
-                                    {!! Form::number('Selling', '', ['class'=>'form-control','placeholder'=>'Selling $','required']) !!}
-                                </div>
-                                <div class="col-md-6">
-                                    {!! Form::number('Rental', '', ['class'=>'form-control', 'placeholder'=>'Rental $','required']) !!}
-                                </div>
-                            </div> --}}
+                            <div class="form-group">
+                                {!! Form::text('Broker', '', ['class'=>'form-control form-group ','placeholder'=>'Do you have a broker? Put her/his name here']) !!}
+                            </div>
                             <div style="align-items: right">
                                 <a href="{{ url('terms')}}">Accept Terms and Conditions </a>
                                 {!! Form::checkbox('Terms', '1',  ['class'=>'form-control','required']) !!}
                             </div>
                             {!! Form::hidden('Token', '', ['id'=>'token']) !!}
-                            <button type="submit" onclick="continuar(3)" style="position: relative; margin-left: 250px; margin-top: 51px" class="btn btn-info">Continue</button>
+                            <button type="submit" onclick="continuar(3)" style="position: relative; margin-left: 250px; margin-top: -3px" class="btn btn-info">Continue</button>
                         </div>
                     </div>
                 {!! Form::close() !!}
