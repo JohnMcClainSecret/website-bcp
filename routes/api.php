@@ -17,7 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('submitContact',[ApiController::class,'submit']);
-Route::get('getanoffer',[ApiController::class,'getanoffer']);
-Route::get('terms',[ApiController::class,'terms']);
-Route::post('sendOffer',[ApiController::class,'sendOffer']);

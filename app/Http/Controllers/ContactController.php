@@ -32,7 +32,6 @@ class ContactController extends Controller
         //     return view('errorpage');
         // }
     }
-
     public function welcome(){
         $offers = LiveOffer::all();
         return view('welcome',compact('offers'));
@@ -40,7 +39,6 @@ class ContactController extends Controller
     public function errorPage(){
         return view('errorpage');
     }
-
     public function newsletter(Request $request){
         $news = new NewsletterModel();
 

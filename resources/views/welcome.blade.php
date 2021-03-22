@@ -83,8 +83,13 @@
 
             <div class="section-title">
               <h2>About Us</h2>
-              <p>If you feel you have been lied to, misled, or pressured into buying your Real Estate or timeshare, you have the right to get rid of your property. Last year, over 150,000 people reached out to us for help and we transfered nearly $50,000,000.00 in property profit. So, what does that mean for you? It means we know how to get you out of an uneasy situation successfully which in return gives you peace of mind.<br>
-                We are here to help you!</p>
+              <p>Over the last 10 years our main focus has been creating opportunities for mutual resale
+                  and purchase prospects.
+              </p> <br>
+              <p>
+                  With our marketing techniques we target global qualified buyers to our site and accomplish
+                  satisfactory transactions.
+              </p>
             </div>
 
           </div>
@@ -107,11 +112,17 @@
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon"><i class="icofont-building-alt"></i></div>
-                <h4 class="title"><a href="">Commercial, Residential, and Rentals</a></h4>
-                <p class="description">Large or small, condo or mansion, we can find it and get it for you at the price that's right. TICs? Fixer-uppers? Luxury? We can help with all of it. We always have a current list of available properties for you to check out.</p>
+                <h4 class="title"><a href="">Resales and Rentals</a></h4>
+                <p class="description">What type of memberships can be sold:
+                    <ul>
+                        <li style="margin-left: -135px">RCI</li>
+                        <li style="margin-left: -135px">HSI</li>
+                        <li>All well known resorts</li>
+                    </ul>
+                </p>
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
+                <div class="icon"><i class="icofont-handshake-deal"></i></div>
                 <h4 class="title"><a href="">Timeshare resale done right</a></h4>
                 <p class="description">We believe in bridging the gap between a prospect seller and an interested buyer
                     and in creating opportunity for mutually beneficial partnerships where none has a previously existed.</p>
@@ -140,11 +151,10 @@
             <div class="content col-xl-4 d-flex " style="align-items: center">
               <div class="content">
                 <h3 style="color: #5c768d">Live Offer Feed</h3>
-                <p style="text-align: justify">We offers more than just timeshare resale advertising: we work with you to get your timeshare
-                    seen and sold using advanced Internet marketing techniques, we target a global audience of consumers,
-                    driving thousands of qualified buyers to our site daily through search engines like Google, Bing, and Yahoo..</p>
-                <p>Our live offer feed shows recent purchase offers delivered to timeshare owners just like you.</p>
-                <a href="#" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
+                <p style="text-align: justify">
+                    Through our live offer feed we share with you our closed deals in real time.
+                </p>
+                <a href="{{ url('getanoffer')}}" class="about-btn"><span>Get and offer</span> <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
             <div class="col-xl-8 d-flex ">

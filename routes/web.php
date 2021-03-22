@@ -28,7 +28,7 @@ Route::post('newsletter', [ContactController::class,'newsletter']);
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('index',[UserController::class,'index'])->name('home');
-    Route::get('home',[UserController::class,'index']);
+    Route::get('index',[UserController::class,'index']);
+    Route::get('home',[UserController::class,'index'])->name('home');
     // Route::get('loginSubmit',[LoginController::class,'loginSubmit']);
 });
