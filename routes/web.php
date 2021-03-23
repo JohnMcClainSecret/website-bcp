@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PanelController;
 use App\Http\Controllers\OfferController;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -25,10 +25,14 @@ Route::get('getanoffer',[OfferController::class,'getanoffer']);
 Route::get('terms',[OfferController::class,'terms']);
 Route::post('sendOffer',[OfferController::class,'sendOffer']);
 Route::post('newsletter', [ContactController::class,'newsletter']);
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('index',[UserController::class,'index']);
     Route::get('home',[UserController::class,'index'])->name('home');
+    Route::get('loisection',[PanelController::class,'view']);
+    Route::get('downloadLOI',[PanelController::class,'downloadLOI']);
+    Route::post('submitLOI',[PanelController::class,'submitLOI']);
     // Route::get('loginSubmit',[LoginController::class,'loginSubmit']);
 });

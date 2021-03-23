@@ -148,17 +148,24 @@
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
       $('.back-to-top').fadeIn('slow');
+      $('.popup-contact').fadeIn('slow');
     } else {
       $('.back-to-top').fadeOut('slow');
+      $('.popup-contact').fadeOut('slow');
     }
   });
-
   $('.back-to-top').click(function() {
     $('html, body').animate({
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
     return false;
   });
+//   $('.popup-contact').click(function() {
+//     $('html, body').animate({
+//       scrollTop: 0
+//     }, 1500, 'easeInOutExpo');
+//     return false;
+//   });
 
   // Initiate the venobox plugin
   $(window).on('load', function() {

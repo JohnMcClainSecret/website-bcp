@@ -33,7 +33,7 @@
           <div class="carousel-item" style="background-image: url('img/slide/banner2.jpg');">
             <div class="carousel-container">
               <div class="carousel-content container">
-                <p class="animate__animated animate__fadeInUp">FIND YOUR NEXT PROPERTY!</p>
+                <p class="animate__animated animate__fadeInUp">SELL YOUR TIMESHARE!</p>
                 <h2 class="animate__animated animate__fadeInDown">A broker you can trust</h2>
                 <p class="animate__animated animate__fadeInUp">We work with owners from all different brands and ownership
                     clubs to sell or rent in a quick and efficient manner.

@@ -44,6 +44,7 @@ class OfferController extends Controller
             $offer->Rental = $request->Rental;
             $offer->Terms = $request->Terms;
             $offer->Broker = $request->Broker;
+            $offer->typeRoom = $request->typeRoom;
             $offer->save();
 
             if($offer){

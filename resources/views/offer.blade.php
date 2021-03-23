@@ -4,7 +4,10 @@
     @push('css')
         <style>
             body{
-                background: linear-gradient(to right, rgb(13, 187, 187), rgb(4, 109, 91));
+                /* background: linear-gradient(to right, rgb(13, 187, 187), rgb(4, 109, 91)); */
+                background-image: url("img/fondo.jpeg");
+                background-repeat: no-repeat;
+                background-size: 100%
             }
 
             nav a {
