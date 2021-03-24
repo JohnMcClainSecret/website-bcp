@@ -1,8 +1,7 @@
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 <div class="popup-contact">
-
-    <div style="text-align: center; margin-top: 25px">
+    {{-- <div style="text-align: center; margin-top: 25px">
         <h2>Contact us!</h2>
         <div class="form-inline margin">
             <label for="">Email: </label>
@@ -12,7 +11,8 @@
             <label for="">Tel:       </label>
             <label style="margin-left: 35px">1111111111</label>
         </div>
-    </div>
+    </div> --}}
+    <img src="{{ asset('img/Contact.png')}}" width="70%">
 </div>
 
 <!-- Vendor JS Files -->

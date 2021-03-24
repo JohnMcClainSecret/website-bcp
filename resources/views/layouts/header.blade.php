@@ -9,8 +9,8 @@
         <nav class="nav-menu float-right d-none d-lg-block" style="margin-top: 25px">
             <ul>
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="{{ url('..#about/')}}">About Us</a></li>
-            <li><a href="{{ url('..#services/')}}">Services</a></li>
+            <li><a href="{{ url('/#about/')}}">About Us</a></li>
+            <li><a href="{{ url('/#services/')}}">Services</a></li>
             <li><a href="{{ url('getanoffer')}}">Get an Offer</a></li>
             <li><a href="{{ url('login')}}">Login</a></li>
             {{-- <li><a href="#team">Team</a></li>
@@ -31,7 +31,7 @@
                 <li><a href="#">Drop Down 5</a></li>
                 </ul>
             </li> --}}
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="{{ url('/#contact/')}}">Contact Us</a></li>
             </ul>
         </nav><!-- .nav-menu -->
     </div>

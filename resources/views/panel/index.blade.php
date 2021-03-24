@@ -40,8 +40,8 @@
                   </div>
                   <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button style="margin-left: 50px" type="submit" class="btn btn-primary">Submit</button>
                     {!! Form::close() !!}
-                    <button style="margin-left: 50px" type="button" class="btn btn-primary">Submit</button>
                   </div>
 
             </div>

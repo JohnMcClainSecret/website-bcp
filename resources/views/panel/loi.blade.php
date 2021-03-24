@@ -47,7 +47,7 @@
             <br>
             <b>Business Consultat Prime Brokers</b> <br>
             <label for="">199 Water Street, New York, New York, 10038</label> <br>
-            <label>Phone: </label> <br>
+            <label>Phone: </label> 121 24611062<br>
             <label>Email: contact@businessconsultantprimebrokers.com</label> <br>
         </div>
     </div>

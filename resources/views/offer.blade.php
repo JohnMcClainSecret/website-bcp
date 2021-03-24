@@ -13,14 +13,14 @@
             nav a {
                 list-style: none;
                 padding: 35px;
-                color: white;
+                color: rgb(247, 231, 159);
                 font-size: 1.1em;
                 display: block;
                 transition: all 0.3s ease-in-out;
             }
 
             nav a:hover {
-                color: aqua;
+                color: rgb(104, 192, 192);
                 transform: scale(1.2);
                 cursor: pointer;
             }
@@ -82,16 +82,16 @@
 
             }
             a:hover {
-                color: #7d7d7d;
+                color: #f4ff8f;
             }
         </style>
     @endpush
-    <div style="margin-top: 80px">
+    <div style="margin-top: 80px; margin-bottom: 90px">
         <div class="container" style="background: white;width: 600px;height: 500px; margin-left: auto;
            margin-right: auto; margin-bottom: 25px;position: relative;  box-shadow: 2px 5px 20px rgba(gray, 0.5);">
             <div class="leftbox" style="float: left; top: -5%; left: 5%; position: relative; width: 15%;
-                height: 110%;background: #5c768d;box-shadow: 3px 3px 10px rgba(gray, 0.5);">
-                <nav>
+                height: 110%;background: seashell;box-shadow: 3px 3px 10px rgba(gray, 0.5);">
+                <nav id='nav'>
                     <a type="button" id="unitInfoIcon"  onclick="continuar(0)"><i class="icofont-home"></i></a>
                     <a  type="button"  id="membershipIcon" onclick="continuar(1)"><i class="icofont-credit-card"></i></a>
                     <a  type="button"  id="importIcon" onclick="continuar(2)"><i class="icofont-ui-user"></i></a>
@@ -236,7 +236,7 @@
 @section('scripts')
     <script>
         /*active button class onclick*/
-        $('nav a').click(function(e) {
+        $('#nav').click(function(e) {
             e.preventDefault();
             $('nav a').removeClass('active');
             $(this).addClass('active');

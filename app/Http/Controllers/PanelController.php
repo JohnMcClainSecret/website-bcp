@@ -38,6 +38,10 @@ class PanelController extends Controller
     public function submitLOI(Request $request){
         if($request->has('LOIFirm')){
             dd($request->all());
+            $name = $request->LOIFirm->getClientOriginalName();
+            $mimeType = $request->LOIFirm->getMimeType();
+            $request->file('LOIFirm')->storeAs("public/user",('L.O.I.'.$name.'.'.$mimeType));
         }
+        return back();
     }
 }
