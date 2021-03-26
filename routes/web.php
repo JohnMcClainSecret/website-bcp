@@ -34,5 +34,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('loisection',[PanelController::class,'view']);
     Route::get('downloadLOI',[PanelController::class,'downloadLOI']);
     Route::post('submitLOI',[PanelController::class,'submitLOI']);
-    // Route::get('loginSubmit',[LoginController::class,'loginSubmit']);
+    Route::post('uploadSignature',[PanelController::class, 'uploadSignature']);
+    Route::post('signatureDrawn',[PanelController::class, 'signatureDrawn']);
+    Route::get('previewLOI',[PanelController::class,'previewLOI']);
+    Route::get('downloadTNL',[PanelController::class,'downloadTNL']);
+    Route::post('submitTNL',[PanelController::class,'submitTNL']);
+    Route::post('uploadSignatureTNL',[PanelController::class, 'uploadSignatureTNL']);
+    Route::post('signatureDrawnTNL',[PanelController::class, 'signatureDrawnTNL']);
+    Route::get('previewTNL',[PanelController::class,'previewTNL']);
+    Route::get('downloadContract',[PanelController::class,'downloadContract']);
+    Route::post('submitContract',[PanelController::class,'submitContract']);
+    Route::post('uploadSignatureContract',[PanelController::class, 'uploadSignatureContract']);
+    Route::post('signatureDrawnContract',[PanelController::class, 'signatureDrawnContract']);
+    Route::get('previewContract',[PanelController::class,'previewContract']);
 });

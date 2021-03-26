@@ -47,15 +47,15 @@
             <br>
             <b>Business Consultat Prime Brokers</b> <br>
             <label for="">199 Water Street, New York, New York, 10038</label> <br>
-            <label>Phone: </label> 121 24611062<br>
+            <label>Phone: </label> <br>
             <label>Email: contact@businessconsultantprimebrokers.com</label> <br>
         </div>
     </div>
     <div class='div'>
-        <h1 style="text-align: center">PURCHASE OFFER</h1>
+        <h1 style="text-align: center">TNL</h1>
         <p>This Purchase Offer is made and entered into this {{ $current }}</p>
 
-        <p> <b> BETWEEN: Mariana Agueova</b> (Licencse No. 2011027781), representing <b>Business Consultant Prime Brokers </b>
+        {{-- <p> <b> BETWEEN: Mariana Agueova</b> (Licencse No. 2011027781), representing <b>Business Consultant Prime Brokers </b>
             doing business as BCP Brokers, a company organized and existing under the laws of New York, with its head office
             at 199 Water Street, New York, New York, 10038.
         </p>
@@ -118,10 +118,10 @@
                     </ul>
                 </li>
             </ol>
-        </p>
+        </p> --}}
     </div>
     <br> <br>
-    <div class="div" style="margin-top: 100px">
+    {{-- <div class="div" style="margin-top: 100px">
         <ol>
             <li><b>Comission</b>
                 <p>An 8% commission will be charged to the Seller(s) at the time of closing</p>
@@ -152,8 +152,7 @@
                 </ul>
             </li>
         </ol>
-    </div>
-    <img src="{{ $Signature }}" alt="">
+    </div> --}}
 </body>
 
 </html>

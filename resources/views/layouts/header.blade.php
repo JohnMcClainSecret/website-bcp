@@ -12,7 +12,27 @@
             <li><a href="{{ url('/#about/')}}">About Us</a></li>
             <li><a href="{{ url('/#services/')}}">Services</a></li>
             <li><a href="{{ url('getanoffer')}}">Get an Offer</a></li>
-            <li><a href="{{ url('login')}}">Login</a></li>
+            {{-- <li><a href="{{ url('login')}}">Login</a></li> --}}
+            @guest
+                @if (Route::has('login'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                @endif
+            @else
+                <li>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
+            @endguest
+
             {{-- <li><a href="#team">Team</a></li>
             <li class="drop-down"><a href="">Drop Down</a>
                 <ul>
