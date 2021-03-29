@@ -225,7 +225,7 @@
               <div class="info-box ">
                 <i class="bx bx-phone-call"></i>
                 <h3>Call Us</h3>
-                <p>121 24611062</p>
+                <p>212 4611062</p>
               </div>
             </div>
 

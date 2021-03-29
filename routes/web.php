@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('submitLOI',[PanelController::class,'submitLOI']);
     Route::post('uploadSignature',[PanelController::class, 'uploadSignature']);
     Route::post('signatureDrawn',[PanelController::class, 'signatureDrawn']);
-    Route::get('previewLOI',[PanelController::class,'previewLOI']);
+    Route::post('previewLOI',[PanelController::class,'previewLOI']);
     Route::get('downloadTNL',[PanelController::class,'downloadTNL']);
     Route::post('submitTNL',[PanelController::class,'submitTNL']);
     Route::post('uploadSignatureTNL',[PanelController::class, 'uploadSignatureTNL']);
@@ -47,4 +47,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('uploadSignatureContract',[PanelController::class, 'uploadSignatureContract']);
     Route::post('signatureDrawnContract',[PanelController::class, 'signatureDrawnContract']);
     Route::get('previewContract',[PanelController::class,'previewContract']);
+    Route::post('uploadDocuments',[PanelController::class,'uploadDocuments']);
 });
