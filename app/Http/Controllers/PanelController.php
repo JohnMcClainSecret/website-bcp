@@ -437,6 +437,7 @@ class PanelController extends Controller
 
             $doc->Document = 'storage/users/'.$id.'-'.$user.'/'.$request->Description.'.'.$mimeType;
             $doc->Description = $request->Description;
+            $doc->user_id = $id;
             $doc->save();
             return back();
         }else{

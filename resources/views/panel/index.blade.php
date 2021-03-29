@@ -61,8 +61,9 @@
                                     </div>
                                     <div class="col-md-12" style="margin-top: 30px">
                                         <div class="modal-footer">
+                                            <p></p>
                                             {{-- <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                                                <button style="margin-left: 50px" type="submit" class="btn btn-info">Submit</button>
+                                                <button style="margin-left: 50px; margin-top: 40px" type="submit" class="btn btn-info">Submit</button>
                                             {!! Form::close() !!}
                                         </div>
                                     </div>
@@ -93,9 +94,11 @@
                                     <div class="col-md-12" style="margin-top: 30px">
                                         {!! Form::open(['url'=>'previewLOI']) !!}
                                         <div class="modal-footer">
-                                            {!! Form::label('WS', 'Approve the document without signature') !!}
-                                            {!! Form::checkbox('Withouts', 1, false, ['class'=>'form-control']) !!}
-                                            {{-- <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                                            <p style="font-size: 10px">By clicking Continue, I agree that the signature will be the electronic representation
+                                                of my signature for all purposes when I  use them  legally in this binding contracts
+                                                - just the same as a pen-and-paper signature or initial.</p>
+                                                {!! Form::label('WS', 'Approve the document without signature') !!}
+                                                {!! Form::checkbox('Withouts', 1, false, ['class'=>'form-control']) !!}
                                                 <button style="margin-left: 50px" type="submit" class="btn btn-info">Continue</button>
                                             </div>
                                         {!! Form::close() !!}
