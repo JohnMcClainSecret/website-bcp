@@ -1504,7 +1504,6 @@ section {
 
 /* ----------------LOGOS ---------------- */
 
-
 @media (max-width: 894px){
     .logos{
         margin-left: 30px;
@@ -1588,5 +1587,18 @@ section {
     }
     .logos{
         margin-left: 0px;
+    }
+}
+
+/* ----------------Table Live Offer-------------------------------- */
+@media (max-width: 1200px){
+    .table-offer{
+        margin-top: 50px;
+        margin: 50px 15px 15px ;
+    }
+}
+@media (min-width: 1201px){
+    .table-offer{
+        margin-left: 8rem;
     }
 }

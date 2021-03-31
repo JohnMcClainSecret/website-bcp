@@ -144,11 +144,11 @@
         </div>
     </section><!-- End Our Portfolio Section -->
 
-    <!-- ======= ======= -->
+    <!-- ======= Offer Table======= -->
     <section >
-        <div class="container" data-aos="fade-up">
+        <div class="container justify-content-center" data-aos="fade-up">
           <div class="row no-gutters">
-            <div class="content col-xl-4 d-flex " style="align-items: center">
+            <div class="content col-xl-4 d-flex justify-content-center" style="align-items: center">
               <div class="content">
                 <h3 style="color: #5c768d">Live Offer Feed</h3>
                 <p style="text-align: justify">
@@ -157,10 +157,10 @@
                 <a href="{{ url('getanoffer')}}" class="about-btn"><span>Get and offer</span> <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
-            <div class="col-xl-8 d-flex ">
+            <div class="col-xl-8 d-flex justify-content-center">
               <div class="icon-boxes d-flex flex-column justify-content-center">
-                <div class="row">
-                    <table class="table table-hover" style="margin-left: 8rem">
+                <div class="row table-offer">
+                    <table class="table table-hover" >
                         <thead >
                             <tr>
                                 <th style="color: #5c768d">Resort Name</th>
