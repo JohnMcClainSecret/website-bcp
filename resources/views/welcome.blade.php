@@ -213,11 +213,11 @@
               </div>
             </div>
 
-            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
               <div class="info-box">
                 <i class="bx bx-envelope"></i>
                 <h3>Email Us</h3>
-                <p style="font-size: 13px">contact@businessconsultantprimebrokers.com</p>
+                <p >contact@businessconsultantprimebrokers.com</p>
               </div>
             </div>
 
@@ -260,14 +260,23 @@
         </div>
     </section><!-- End Contact Us Section -->
 
-    <div class="container-fluid" data-aos="zoom-in">
+    <div class="container-fluid inline logos" data-aos="zoom-in">
         <div class="row justify-content-center">
             <div class="col-xl-12" >
-                <div class="owl-carousel clients-carousel" style="margin: 30px 200px ">
-                    <img style="margin: 0 75px" src="img/timeshare.png" alt="">
-                    <img style="margin: 0 75px" src="img/caa.png" alt="">
-                    <img style="margin: 0 75px" src="img/tbs.png" alt="">
-                    <img style="margin: 0 75px" src="img/inc.png" alt="">
+                {{-- style="margin: 30px 200px " --}}
+                <div class="owl-carousel clients-carousel row" >
+                    <div class="col-md-3 col-sm-6 my-3 responsive">
+                        <img style="margin-left: 30px" src="img/timeshare.png" alt="">
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3 responsive1 ">
+                        <img style="margin-left: 30px" src="img/caa.png" alt="">
+                    </div>
+                    <div  class="col-md-3 col-sm-6 my-3 responsive responsive2">
+                        <img style="margin-left: 30px" src="img/tbs.png" alt="">
+                    </div>
+                    <div  class="col-md-3 col-sm-6 my-3 responsive1">
+                        <img style="margin-left: 30px" src="img/inc.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
