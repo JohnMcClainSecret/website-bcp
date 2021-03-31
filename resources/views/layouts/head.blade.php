@@ -9,7 +9,7 @@
 
     <!-- Favicons -->
     <link href="{{ asset('img/logo.png')}}" rel="icon">
-    <link href="{{ asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    {{-- <link href="{{ asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon"> --}}
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
@@ -20,7 +20,7 @@
     <link href="{{ asset('vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
     <link href="{{ asset('vendor/animate.css/animate.min.css')}}" rel="stylesheet">
     <link href="{{ asset('vendor/venobox/venobox.css')}}" rel="stylesheet">
-    <link href="{{ asset('vendor/owl.carousel/owl.carousel.min.css')}}" rel="stylesheet">
+    {{-- <link href="{{ asset('vendor/owl.carousel/owl.carousel.min.css')}}" rel="stylesheet"> --}}
     <link href="{{ asset('vendor/aos/aos.css')}}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
