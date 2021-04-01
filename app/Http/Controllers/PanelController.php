@@ -22,7 +22,9 @@ class PanelController extends Controller
     }
     public function downloadLOI(){
         $offer = GetOffer::where('user_id',Auth::user()->id)->first();
+
         $signature = User::find(Auth::user()->id);
+
         $data = [
             'Seller' => $offer->OwnerName,
             'Phone' => $offer->Phone,
@@ -86,6 +88,7 @@ class PanelController extends Controller
             return Redirect::back()->with('status', 'Sorry, we did not find any document to upload, please try again. !');
         }
     }
+    
     public function signatureDrawn(){
         $user = User::find(Auth::user()->id);
 

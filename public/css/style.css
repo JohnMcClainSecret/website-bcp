@@ -8,15 +8,14 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-
-
 @font-face {
-    font-family: 'no';
-    src: url('fonts/UniversLightCondensed.ttf');
-    font-family: 'yes';
-    src: url('/fonts/TrajanusBricks.ttf');
+    font-family: "BCP";
+    src: url('/fonts/UniversLightCondensed.ttf');
 }
-
+@font-face {
+    font-family: "Logo";
+    src: url('/fonts/TrajanusBriX-Invers.ttf');
+}
 body {
   font-family: "Open Sans", sans-serif;
   color: #444;
