@@ -108,7 +108,7 @@
                         @else
                             <button class="btn btn-success"type="button" onclick="showPDF()" style="margin-left: 650px; margin-bottom: 30px">Show</button>
                             <div id="pdf" style="margin-left: 200px">
-                                <object type="application/pdf" data="{{ $files->PathLOI }}" width="1000" height="650"></object>
+                                <object type="application/pdf" data="{{ url('https://businessconsultantprimebrokers.com/website-bcp/public/'.$files->PathLOI)}}" width="1000" height="650"></object>
                             </div>
                         @endif
                     </div>
@@ -232,7 +232,7 @@
                         @else
                             <button class="btn btn-success"type="button" onclick="showPDF(2)" style="margin-left: 650px; margin-bottom: 30px">Show</button>
                             <div id="pdf2" style="margin-left: 200px;">
-                                <object type="application/pdf" data="{{ $files->PathTNL }}" width="1000" height="650"></object>
+                                <object type="application/pdf" data="{{ url('https://businessconsultantprimebrokers.com/website-bcp/public/'.$files->PathTNL)}}" width="1000" height="650"></object>
                             </div>
                         @endif
                     </div>
@@ -355,7 +355,7 @@
                     @else
                         <button class="btn btn-success"type="button" onclick="showPDF(3)" style="margin-left: 650px; margin-bottom: 30px">Show</button>
                         <div id="pdf3" style="margin-left: 200px;">
-                            <object type="application/pdf" data="{{ $files->PathContract }}" width="1000" height="650"></object>
+                            <object type="application/pdf" data="{{ url('https://businessconsultantprimebrokers.com/website-bcp/public/'.$files->PathContract)}}" width="1000" height="650"></object>
                         </div>
                     @endif
                 </div>

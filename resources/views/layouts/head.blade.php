@@ -2,7 +2,6 @@
     @stack('css')
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
     <title>Business Consultant Prime</title>
     <meta content="" name="description">
     <meta content="" name="brokers, bcp, broker, investment, timeshare, share my time, time, share, bcp brokers, BCP">

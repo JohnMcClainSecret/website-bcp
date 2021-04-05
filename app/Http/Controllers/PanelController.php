@@ -88,7 +88,6 @@ class PanelController extends Controller
             return Redirect::back()->with('status', 'Sorry, we did not find any document to upload, please try again. !');
         }
     }
-    
     public function signatureDrawn(){
         $user = User::find(Auth::user()->id);
 
