@@ -182,36 +182,36 @@
                     </div>
                     <div class="row" id="import">
                         <div class="col-md-1"></div>
-                        <div class="col-md-11" style="margin-top: 15px">
-                            <h2 style=" color: green; font-size: 25px; text-align: center ">Important Info</h2>
-                            {!! Form::text('Benefits', '', ['class'=>'form-group form-control','placeholder'=>'Benefits']) !!}
-                            {!! Form::text('ResortName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Resort Name']) !!}
-                            {!! Form::text('Location', '', ['class'=>'form-control form-group ','placeholder'=>'Location']) !!}
-                            {!! Form::email('Email', '', ['class'=>'form-control form-group ','required','placeholder'=>'Email']) !!}
-                            {!! Form::text('OwnerName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Owner Name']) !!}
-                            <div class="row">
-                                <div class="col-md-6 formRow">
-                                    {!! Form::text('Phone', '', ['class'=>'form-control form-group ','placeholder'=>'Phone/Home','required']) !!}
+                            <div class="col-md-11" style="margin-top: 15px">
+                                <h2 style=" color: green; font-size: 25px; text-align: center ">Important Info</h2>
+                                {!! Form::text('Benefits', '', ['class'=>'form-group form-control','placeholder'=>'Benefits']) !!}
+                                {!! Form::text('ResortName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Resort Name']) !!}
+                                {!! Form::text('Location', '', ['class'=>'form-control form-group ','placeholder'=>'Location']) !!}
+                                {!! Form::email('Email', '', ['class'=>'form-control form-group ','required','placeholder'=>'Email']) !!}
+                                {!! Form::text('OwnerName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Owner Name']) !!}
+                                <div class="row">
+                                    <div class="col-md-6 formRow">
+                                        {!! Form::text('Phone', '', ['class'=>'form-control form-group ','placeholder'=>'Phone/Home','required']) !!}
+                                    </div>
+                                    <div class="col-md-6 formRow">
+                                        {!! Form::text('Availability', '', ['class'=>'form-control form-group','placeholder'=>'Availability']) !!}
+                                    </div>
                                 </div>
-                                <div class="col-md-6 formRow">
-                                    {!! Form::text('Availability', '', ['class'=>'form-control form-group','placeholder'=>'Availability']) !!}
+                                <div class="form-group">
+                                    {!! Form::text('Broker', '', ['class'=>'form-control form-group ','placeholder'=>'Do you have a broker? Put her/his name here']) !!}
+                                </div>
+                                <div style="align-items: right">
+                                    <a href="{{ url('terms')}}">Accept Terms and Conditions </a>
+                                    {!! Form::checkbox('Terms', '1',  ['class'=>'form-control','required']) !!}
+                                </div>
+                                {!! Form::hidden('Token', '', ['id'=>'token']) !!}
+                                <div class="form-inline"  style="display: flex">
+                                    <div class=" form-group groupBtn">
+                                        <button type="button" class="btn btn-info" onclick="continuar(1)">Back</button>
+                                        <button type="submit" onclick="continuar(3)" class="btn btn-info btnContinue">Continue</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                {!! Form::text('Broker', '', ['class'=>'form-control form-group ','placeholder'=>'Do you have a broker? Put her/his name here']) !!}
-                            </div>
-                            <div style="align-items: right">
-                                <a href="{{ url('terms')}}">Accept Terms and Conditions </a>
-                                {!! Form::checkbox('Terms', '1',  ['class'=>'form-control','required']) !!}
-                            </div>
-                            {!! Form::hidden('Token', '', ['id'=>'token']) !!}
-                            <div class="form-inline"  style="display: flex">
-                                <div class=" form-group groupBtn">
-                                    <button type="button" class="btn btn-info" onclick="continuar(1)">Back</button>
-                                    <button type="submit" onclick="continuar(3)" class="btn btn-info btnContinue">Continue</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 {!! Form::close() !!}
             </div>

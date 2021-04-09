@@ -1659,3 +1659,28 @@ section {
         margin-top: 25px;
     }
 }
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .flex-item-left {
+    padding: 10px;
+    flex: 50%;
+  }
+
+  .flex-item-right {
+    padding: 10px;
+    flex: 50%;
+  }
+
+  /* Responsive layout - makes a one column-layout instead of two-column layout */
+  @media (max-width: 1000px) {
+    .flex-container {
+      flex-direction: column;
+    }
+  }

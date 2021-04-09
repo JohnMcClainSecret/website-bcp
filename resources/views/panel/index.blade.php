@@ -3,7 +3,7 @@
 @section('content')
     <style>
         .idk{
-            margin: 140px 60px 30px;
+            margin:30px 50px;
         }
     </style>
         {!! Form::hidden('id', Auth::user()->id, ['id'=>'id']) !!}
@@ -17,7 +17,7 @@
                 <h4>WELCOME {{ Auth::user()->name}}    </h4>
             </div>
             {{-- Buttons General Documents  --}}
-            <div class="form-inline">
+            <div style="margin-top: 50px">
                 <button  type="button" data-toggle="modal" id="loi" data-target="#loiModal" class="btn btn-info idk"><i class="icofont-file-document"></i>  L.O.I section</button>
                 @if ($status->TNL != 0)
                     <button type="button" data-toggle="modal" data-target="#tnlModal" class="btn btn-info idk" ><i class="icofont-law-document"></i> TNL section</button>
@@ -29,7 +29,6 @@
                 @else
                     <button class="btn btn-info idk" disabled="true"><i class="icofont-search-document"></i> Contract</button>
                 @endif
-
                 <button class="btn btn-info idk" data-toggle="modal" data-target="#docsModal" id="documents"><i class="icofont-document-folder"></i> Upload your documents</button>
             </div>
         </div>
@@ -46,46 +45,44 @@
                     </div>
                     <div class="modal-body">
                         @if ($files == null || $files->PathLOI == null)
-                            <div class="form-inline">
-                                {{-- DOWNLOAD THE DOCUMENT --}}
-                                <div class="col-md-6 form-inline">
+                        <div class="flex-container">
+                            {{-- DOWNLOAD THE DOCUMENT --}}
+                                <div class="flex-item-left">
                                     <div>
-                                        <img style="width: 50%; margin-left: 120px;" src="{{ asset('img/step1.png')}}" alt="">
-                                        <p style="margin-left: 65px; margin-top: 15px">Print your document, sign it and upload it here</p>
+                                        <img style="width: 50%;" src="{{ asset('img/step1.png')}}" alt="">
+                                        <p style="margin: 20px auto">Print your document, sign it and upload it here</p>
                                     </div>
                                     <div class="col-md-12 form-inline">
                                         <a href="{{ url('downloadLOI')}}" style="width: 100px" class="btn btn-warning">Download </a>
                                         {!! Form::open(['url'=>'submitLOI','files'=>'true']) !!}
-                                            {!! Form::file('LOIFirm', ['class'=>'form-control','style'=>'margin-left: 50px']) !!}
+                                            {!! Form::file('LOIFirm', ['class'=>'form-control']) !!}
 
                                     </div>
                                     <div class="col-md-12" style="margin-top: 30px">
                                         <div class="modal-footer">
-                                            <p></p>
-                                            {{-- <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                                                <button style="margin-left: 50px; margin-top: 40px" type="submit" class="btn btn-info">Submit</button>
+                                            <button type="submit" class="btn btn-info">Submit</button>
                                             {!! Form::close() !!}
                                         </div>
                                     </div>
                                 </div>
                                 {{-- SIGNING THE DOCUMENT --}}
-                                <div class="col-md-6 form-inline">
+                                <div class="flex-item-right">
                                     <div>
-                                        <img style="width: 40%; margin-left: 200px" src="{{ asset('img/step2.png')}}" alt="">
-                                        <p style="margin-top: 15px; margin-left: 100px">Generate your signature electronically and sign your document</p>
+                                        <img style="width: 40%;" src="{{ asset('img/step2.png')}}" alt="">
+                                        <p style="margin: 20px auto">Generate your signature electronically and sign your document</p>
                                     </div>
                                     <div class="col-md-12 form-inline">
                                         <div class="col-md-6">
-                                            <button onclick="signs(1)" style="margin-left: 60px; width: 200px" class="btn btn-warning" type="button">Generate Signature</button>
+                                            <button onclick="signs(1)" style="width: 200px" class="btn btn-warning" type="button">Generate Signature</button>
                                         </div>
                                         {{-- FORM WITH DIFFERENTS WAYS TO SIGN THE DOCUMENT --}}
                                         <div class="form-inline col-md-6" id="signs" >
-                                            <button style="margin: 0px 30px" class="btn btn-primary" data-container="body"
+                                            <button  class="btn btn-primary" data-container="body"
                                             data-toggle="popover" data-placement="top" type="button"
                                             data-content="Upload an image with your signature" data-trigger="hover"
                                             onclick="upload(1)">Upload</button>
 
-                                            <button style="margin: 0px 30px" class="btn btn-primary" data-container="body"
+                                            <button class="btn btn-primary" data-container="body"
                                             data-toggle="popover" data-placement="top" type="button"
                                             data-content="Draw your signature online" data-trigger="hover"
                                             onclick="draw(1)">Draw</button>
@@ -98,7 +95,7 @@
                                                 of my signature for all purposes when I  use them  legally in this binding contracts
                                                 - just the same as a pen-and-paper signature or initial.</p>
                                                 {!! Form::label('WS', 'Approve the document without signature') !!}
-                                                {!! Form::checkbox('Withouts', 1, false, ['class'=>'form-control']) !!}
+                                                {!! Form::checkbox('Withouts', 1, false, ['class'=>'form-control','style'=>'width: 1%']) !!}
                                                 <button style="margin-left: 50px" type="submit" class="btn btn-info">Continue</button>
                                             </div>
                                         {!! Form::close() !!}
@@ -173,57 +170,54 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" >
                         @if ($files == null || $files->PathTNL == null)
-                            <div class="form-inline">
-                                {{-- DOWNLOAD THE DOCUMENT --}}
-                                <div class="col-md-6 form-inline">
+                            <div class="flex-container">
+                                <div class="flex-item-left">
                                     <div>
-                                        <img style="width: 50%; margin-left: 120px;" src="{{ asset('img/step1.png')}}" alt="">
-                                        <p style="margin-left: 65px; margin-top: 15px">Print your document, sign it and upload it here</p>
+                                        <img style="width: 50%;" src="{{ asset('img/step1.png')}}" alt="">
+                                        <p style="margin: 20px auto">Print your document, sign it and upload it here</p>
                                     </div>
                                     <div class="col-md-12 form-inline">
                                         <a href="{{ url('downloadTNL')}}" style="width: 100px" class="btn btn-warning">Download </a>
                                         {!! Form::open(['url'=>'submitTNL','files'=>'true']) !!}
-                                            {!! Form::file('TNLFirm', ['class'=>'form-control','style'=>'margin-left: 50px']) !!}
+                                            {!! Form::file('TNLFirm', ['class'=>'form-control']) !!}
                                     </div>
-                                    <div class="col-md-12" style="margin-top: 30px">
-                                        <div class="modal-footer">
-                                                <button style="margin-left: 50px" type="submit" class="btn btn-info">Submit</button>
+                                    <div class="col-md-12" >
+                                        <div class="modal-footer" style="margin: 20px auto">
+                                                <button  type="submit" class="btn btn-info">Submit</button>
                                             {!! Form::close() !!}
                                         </div>
                                     </div>
                                 </div>
-                                {{-- SIGNING THE DOCUMENT --}}
-                                <div class="col-md-6 form-inline">
+                                <div class="flex-item-right">
                                     <div>
-                                        <img style="width: 40%; margin-left: 200px" src="{{ asset('img/step2.png')}}" alt="">
-                                        <p style="margin-top: 15px; margin-left: 100px">Generate your signature electronically and sign your document</p>
+                                        <img style="width: 40%;" src="{{ asset('img/step2.png')}}" alt="">
+                                        <p style="margin: 20px auto">Generate your signature electronically and sign your document</p>
                                     </div>
                                     <div class="col-md-12 form-inline">
                                         <div class="col-md-6">
-                                            <button onclick="signs(2)" style="margin-left: 60px; width: 200px" class="btn btn-warning" type="button">Generate Signature</button>
+                                            <button onclick="signs(2)" style=" width: 200px" class="btn btn-warning" type="button">Generate Signature</button>
                                         </div>
-                                        {{-- FORM WITH DIFFERENTS WAYS TO SIGN THE DOCUMENT --}}
+
                                         <div class="form-inline col-md-6" id="signsTNL" >
-                                            <button style="margin: 0px 30px" class="btn btn-primary" data-container="body"
+                                            <button  class="btn btn-primary" data-container="body"
                                             data-toggle="popover" data-placement="top" type="button"
                                             data-content="Upload an image with your signature" data-trigger="hover"
                                             onclick="upload(2)">Upload</button>
 
-                                            <button style="margin: 0px 30px" class="btn btn-primary" data-container="body"
+                                            <button  class="btn btn-primary" data-container="body"
                                             data-toggle="popover" data-placement="top" type="button"
                                             data-content="Draw your signature online" data-trigger="hover"
                                             onclick="draw(2)">Draw</button>
                                         </div>
                                     </div>
-                                    <div class="col-md-12" style="margin-top: 30px">
+                                    <div class="col-md-12" >
                                         {!! Form::open(['url'=>'previewTNL', 'method'=>'GET']) !!}
-                                            <div class="modal-footer">
-                                            {{-- <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                                            <div class="modal-footer" style="margin: 20px auto">
                                                 {!! Form::label('WS', 'Approve the document without signature') !!}
-                                                {!! Form::checkbox('Withouts', 1, false, ['class'=>'form-control']) !!}
-                                                <button style="margin-left: 50px" type="submit" class="btn btn-info">Continue</button>
+                                                {!! Form::checkbox('Withouts', 1, false, ['class'=>'form-control', 'style'=>'width: 1%']) !!}
+                                                <button  type="submit" class="btn btn-info">Continue</button>
                                             </div>
                                         {!! Form::close() !!}
                                     </div>
