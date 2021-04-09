@@ -258,11 +258,8 @@
           </div>
 
         </div>
-    </section><!-- End Contact Us Section -->
-
-    <div class="container-fluid inline logos" data-aos="zoom-in">
-        <div class="row justify-content-center">
-            <div class="col-xl-12" >
+        <div class="justify-content-center">
+            <div class="col-xl-12" style="margin-top: 50px">
                 {{-- style="margin: 30px 200px " --}}
                 <div class="owl-carousel clients-carousel row" >
                     <div class="col-md-3 col-sm-6 my-3 responsive">
@@ -280,7 +277,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section><!-- End Contact Us Section -->
+
   </main>
 @endsection
 

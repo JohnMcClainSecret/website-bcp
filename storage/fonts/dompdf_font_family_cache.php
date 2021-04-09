@@ -78,12 +78,12 @@
     'normal' => $rootDir . '/lib/fonts/DejaVuSerif',
   ),
   'bcp' => array(
-    'normal' => $fontDir . '/bcp_normal_aae2e1d45f635cdaa3f51b6b99b98ae2',
+    'normal' => $fontDir . '/bcp_normal_e1ecfada109039a815518cfa6687a970',
   ),
   'logo' => array(
-    'normal' => $fontDir . '/logo_normal_ee2ce177f646854b1a18ab48106e0ecd',
+    'normal' => $fontDir . '/logo_normal_63507a05231820f1c23669998bba1960',
   ),
   'bcp bold' => array(
-    'normal' => $fontDir . '/bcp_bold_normal_507d95f71ac0313218d6e10de618c14a',
+    'normal' => $fontDir . '/bcp_bold_normal_b6cb39bb71d412224c87e3810334c467',
   ),
 ) ?>

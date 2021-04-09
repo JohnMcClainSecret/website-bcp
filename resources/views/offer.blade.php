@@ -6,8 +6,8 @@
             body{
                 /* background: linear-gradient(to right, rgb(13, 187, 187), rgb(4, 109, 91)); */
                 background-image: url("img/fondo.jpeg");
-                background-repeat: no-repeat;
-                background-size: 100%
+                background-repeat: round;
+                background-size: auto;
             }
 
             nav a {
@@ -30,34 +30,10 @@
             .active {
             color: aqua;
             }
-            /* p {
-                border-width: 1px;
-                border-style: solid;
-                border-image: linear-gradient( right,rgb(9, 170, 170), rgba(rgb(77, 165, 113), 0.5)) 1 0%;
-                border-top: 0;
-                width: 80%;
-                font-size: 0.7em;
-                padding: 7px 0;
-                color: black;
-            } */
             span {
                 font-size: 0.5em;
                 color: gray;
             }
-
-            /* .btn {
-                float: right;
-                text-transform: uppercase;
-                font-size: 10px;
-                border: none;
-                color: aqua;
-            } */
-
-            /* .btn:hover {
-                text-decoration: underline;
-                font-weight: 900;
-            } */
-
             input {
                 border: 1px solid lighten(gray, 40%);
                 padding: 2px;
@@ -86,8 +62,8 @@
             }
         </style>
     @endpush
-    <div style="margin-top: 80px; margin-bottom: 90px">
-        <div class="container" style="background: white;width: 600px;height: 500px; margin-left: auto;
+    <div style="display: flex">
+        <div class="container" style="margin-top: 80px; margin-bottom: 90px;background: white;width: 600px;height: 500px; margin-left: auto;
            margin-right: auto; margin-bottom: 25px;position: relative;  box-shadow: 2px 5px 20px rgba(gray, 0.5);">
             <div class="leftbox" style="float: left; top: -5%; left: 5%; position: relative; width: 15%;
                 height: 110%;background: seashell;box-shadow: 3px 3px 10px rgba(gray, 0.5);">
@@ -133,29 +109,29 @@
                                 letter-spacing: 1px;margin-left: 2px;">Additional Week
                             </label>
                             {!! Form::number('AdditionalWeek', '', ['class'=>'form-control','required']) !!}
-                            <button type="button" onclick="continuar(1)" style="position: relative; margin-left: 250px; margin-top: 50px" class="btn btn-info">Continue</button>
+                            <button type="button" onclick="continuar(1)" style="position: relative; margin-left: 250px;" class="btn btn-info marginBtn">Continue</button>
                         </div>
                     </div>
                     <div class="row" id="membership" >
                         <div class="col-md-1"></div>
-                        <div class="col-md-11" style="margin-top: 40px">
+                        <div class="col-md-11" style="margin-top: 20px">
                             {!! Form::label('Membership', 'Membership: ',["style"=>"margin-right: 15px"]) !!}
                             <input  type="radio" id="membera" name="membership" value="Annual" >
                             <label style=" margin: -5px 5px 10px"for="membera">Annual</label>
                             <input type="radio" id="memberb" name="membership" value="Biannual">
                             <label style=" margin: -5px 5px 10px" for="memberb">Biannual</label>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 formRow">
                                     <label style=" color: gray; width: 80%;text-transform: uppercase;
                                         letter-spacing: 1px;margin-left: 2px;">Amount of Points
                                     </label>
                                     {!! Form::number('AmountPoints', '', ['class'=>'form-control']) !!}
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 formRow">
                                     <label style=" color: gray; width: 80%;text-transform: uppercase;
                                         letter-spacing: 1px;margin-left: 2px;">Years remain
                                     </label>
-                                    {!! Form::number('YearRemain', '', ['class'=>'form-control','style'=>'margin-top: 23px']) !!}
+                                    {!! Form::number('YearRemain', '', ['class'=>'form-control']) !!}
                                 </div>
                             </div>
                             <hr>
@@ -167,13 +143,13 @@
                             <input type="radio" id="seasonW" name="season" value="White">
                             <label style=" margin: -5px 5px 10px" for="seasonW">White</label>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 formRow">
                                     <label style=" color: gray; width: 80%;text-transform: uppercase;
                                         letter-spacing: 1px;margin-left: 2px;">Other
                                     </label>
                                     {!! Form::text('OtherSeason', '', ['class'=>'form-control']) !!}
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 formRow">
                                     <label style=" color: gray; width: 80%;text-transform: uppercase;
                                         letter-spacing: 1px;margin-left: 2px;">Maint Fee
                                     </label>
@@ -196,7 +172,12 @@
                                     {!! Form::text('OtherExch', '', ['class'=>'form-control']) !!}
                                 </div>
                             </div>
-                            <button type="button" onclick="continuar(2)" style="position: relative; margin-left: 250px; margin-top: 10px" class="btn btn-info">Continue</button>
+                            <div class="form-inline"  style="display: flex">
+                                <div class=" form-group groupBtn">
+                                    <button type="button" class="btn btn-info btnBack" onclick="continuar(0)">Back</button>
+                                    <button type="button" onclick="continuar(2)" class="btn btn-info btnContinue">Continue</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row" id="import">
@@ -209,10 +190,10 @@
                             {!! Form::email('Email', '', ['class'=>'form-control form-group ','required','placeholder'=>'Email']) !!}
                             {!! Form::text('OwnerName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Owner Name']) !!}
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 formRow">
                                     {!! Form::text('Phone', '', ['class'=>'form-control form-group ','placeholder'=>'Phone/Home','required']) !!}
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 formRow">
                                     {!! Form::text('Availability', '', ['class'=>'form-control form-group','placeholder'=>'Availability']) !!}
                                 </div>
                             </div>
@@ -224,7 +205,12 @@
                                 {!! Form::checkbox('Terms', '1',  ['class'=>'form-control','required']) !!}
                             </div>
                             {!! Form::hidden('Token', '', ['id'=>'token']) !!}
-                            <button type="submit" onclick="continuar(3)" style="position: relative; margin-left: 250px; margin-top: -3px" class="btn btn-info">Continue</button>
+                            <div class="form-inline"  style="display: flex">
+                                <div class=" form-group groupBtn">
+                                    <button type="button" class="btn btn-info" onclick="continuar(1)">Back</button>
+                                    <button type="submit" onclick="continuar(3)" class="btn btn-info btnContinue">Continue</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 {!! Form::close() !!}
@@ -277,6 +263,7 @@
                 $('#import').hide();
             }else if (val == 2){
                 $('#unitInfo').hide();
+                $('#continuar').show();
                 // $('#membershipIcon').removeClass('active');
                 $('#importIcon').addClass('active');
                 $('#membership').hide();

@@ -217,7 +217,7 @@
         </p>
     </div>
      {{-- logo --}}
-     <div style="width: 50%; margin-left: 350px; margin-top: 150px;margin-bottom: 10px">
+     <div style="width: 50%; margin-left: 350px; margin-top: 110px;margin-bottom: 10px">
         <img src="{{ public_path('img/logo.png') }}" style="width: 100px; height: 100px">
     </div>
     {{-- datos de contacto --}}
