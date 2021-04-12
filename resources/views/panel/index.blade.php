@@ -43,10 +43,10 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" >
                         @if ($files == null || $files->PathLOI == null)
-                        <div class="flex-container">
-                            {{-- DOWNLOAD THE DOCUMENT --}}
+                            <div class="flex-container">
+                                {{-- DOWNLOAD THE DOCUMENT --}}
                                 <div class="flex-item-left">
                                     <div>
                                         <img style="width: 50%;" src="{{ asset('img/step1.png')}}" alt="">
@@ -55,8 +55,7 @@
                                     <div class="col-md-12 form-inline">
                                         <a href="{{ url('downloadLOI')}}" style="width: 100px" class="btn btn-warning">Download </a>
                                         {!! Form::open(['url'=>'submitLOI','files'=>'true']) !!}
-                                            {!! Form::file('LOIFirm', ['class'=>'form-control']) !!}
-
+                                        {!! Form::file('LOIFirm', ['class'=>'form-control']) !!}
                                     </div>
                                     <div class="col-md-12" style="margin-top: 30px">
                                         <div class="modal-footer">
@@ -93,19 +92,21 @@
                                         <div class="modal-footer">
                                             <p style="font-size: 10px">By clicking Continue, I agree that the signature will be the electronic representation
                                                 of my signature for all purposes when I  use them  legally in this binding contracts
-                                                - just the same as a pen-and-paper signature or initial.</p>
-                                                {!! Form::label('WS', 'Approve the document without signature') !!}
-                                                {!! Form::checkbox('Withouts', 1, false, ['class'=>'form-control','style'=>'width: 1%']) !!}
-                                                <button style="margin-left: 50px" type="submit" class="btn btn-info">Continue</button>
-                                            </div>
+                                                - just the same as a pen-and-paper signature or initial.
+                                            </p>
+                                            {!! Form::label('WS', 'Approve the document without signature') !!}
+                                            {!! Form::checkbox('Withouts', 1, false, ['class'=>'form-control','style'=>'width: 1%']) !!}
+                                            <button style="margin-left: 50px" type="submit" class="btn btn-info">Continue</button>
+                                        </div>
                                         {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
                         @else
-                            <button class="btn btn-success"type="button" onclick="showPDF()" style="margin-left: 650px; margin-bottom: 30px">Show</button>
-                            <div id="pdf" style="margin-left: 200px">
-                                <object type="application/pdf" data="{{ url('https://businessconsultantprimebrokers.com/website-bcp/public/'.$files->PathLOI)}}" width="1000" height="650"></object>
+                            <button class="btn btn-success"type="button" onclick="showPDF()" style="margin-bottom: 30px">Show</button>
+                            <div id="pdf" style="scroll-margin-left: 200px" style="display: flex">
+                                <object type="application/pdf" data="{{$files->PathLOI}}" style="width: -moz-available; height:  500px"></object>
+                                {{-- <object type="application/pdf" data="{{ url('https://businessconsultantprimebrokers.com/website-bcp/public/'.$files->PathLOI)}}" width="1000" height="650"></object> --}}
                             </div>
                         @endif
                     </div>
@@ -224,9 +225,10 @@
                                 </div>
                             </div>
                         @else
-                            <button class="btn btn-success"type="button" onclick="showPDF(2)" style="margin-left: 650px; margin-bottom: 30px">Show</button>
-                            <div id="pdf2" style="margin-left: 200px;">
-                                <object type="application/pdf" data="{{ url('https://businessconsultantprimebrokers.com/website-bcp/public/'.$files->PathTNL)}}" width="1000" height="650"></object>
+                            <button class="btn btn-success"type="button" onclick="showPDF(2)" style=" margin-bottom: 30px">Show</button>
+                            <div id="pdf2">
+                                {{-- <object type="application/pdf" data="{{ url('https://businessconsultantprimebrokers.com/website-bcp/public/'.$files->PathTNL)}}" width="1000" height="650"></object> --}}
+                                <object type="application/pdf" data="{{$files->PathTNL}}"  style="width: -moz-available; height:  500px"></object>
                             </div>
                         @endif
                     </div>
