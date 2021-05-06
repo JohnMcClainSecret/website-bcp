@@ -2,8 +2,6 @@
   <header id="header">
     <div class="container">
         <div class="logo float-left">
-                {{-- <h1 class="text-light" style="margin-top: 20px"><a href="/"><span>BCP Broker</span></a></h1> --}}
-            <!-- Uncomment below if you prefer to use an image logo -->
             <a href="/"><img src="{{ asset('img/logo.png')}}" alt="" class="img-fluid"></a>
         </div>
         <nav class="nav-menu float-right d-none d-lg-block" style="margin-top: 25px">
@@ -12,7 +10,7 @@
             <li><a href="{{ url('/#about/')}}">About Us</a></li>
             <li><a href="{{ url('/#services/')}}">Services</a></li>
             <li><a href="{{ url('getanoffer')}}">Get an Offer</a></li>
-            {{-- <li><a href="{{ url('login')}}">Login</a></li> --}}
+
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
@@ -20,37 +18,21 @@
                     </li>
                 @endif
             @else
-                <li>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
-
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                </li>
-            @endguest
-
-            {{-- <li><a href="#team">Team</a></li>
-            <li class="drop-down"><a href="">Drop Down</a>
-                <ul>
-                <li><a href="#">Drop Down 1</a></li>
-                <li class="drop-down"><a href="#">Drop Down 2</a>
-                    <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-                <li><a href="#">Drop Down 5</a></li>
-                </ul>
-            </li> --}}
+                </div>
+            @endif
+            
             <li><a href="{{ url('/#contact/')}}">Contact Us</a></li>
             </ul>
         </nav><!-- .nav-menu -->
