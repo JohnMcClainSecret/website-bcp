@@ -62,12 +62,11 @@ class PanelController extends Controller
                 $files->save();
             }
 
-
             $offer = GetOffer::where('user_id',$id)->first();
             $offer->Status = 'Aceptado';
             $offer->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new LOIAceptada());
+            Mail::to('hawaicincoceronomams@gmail.com')->send(new LOIAceptada($offer));
             return back();
         }else{
             return Redirect::back()->with('status', 'Sorry, we did not find any document to upload, please try again. !');
@@ -221,7 +220,7 @@ class PanelController extends Controller
             $offer->TNL = 2;
             $offer->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new TNLAceptada());
+            Mail::to('hawaicincoceronomams@gmail.com')->send(new TNLAceptada($offer));
             return back();
         }else{
             return Redirect::back()->with('status', 'Sorry, we did not find any document to upload, please try again. !');
@@ -324,7 +323,7 @@ class PanelController extends Controller
     public function downloadContract(){
         $offer = GetOffer::where('user_id',Auth::user()->id)->first();
         $signature = User::find(Auth::user()->id);
-        
+
         $data = [
             'Seller' => $offer->OwnerName,
             'Phone' => $offer->Phone,
@@ -356,7 +355,7 @@ class PanelController extends Controller
             $offer->Contract = 2;
             $offer->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new ContractAceptada());
+            Mail::to('hawaicincoceronomams@gmail.com')->send(new ContractAceptada($offer));
             return back();
         }else{
             return Redirect::back()->with('status', 'Sorry, we did not find any document to upload, please try again. !');

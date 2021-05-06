@@ -19,16 +19,16 @@
             {{-- Buttons General Documents  --}}
             <div style="margin-top: 50px">
                 <button  type="button" data-toggle="modal" id="loi" data-target="#loiModal" class="btn btn-info idk"><i class="icofont-file-document"></i>  L.O.I section</button>
-                {{-- @if ($status->TNL != 0) --}}
+                @if ($status->TNL != 0)
                     <button type="button" data-toggle="modal" data-target="#tnlModal" class="btn btn-info idk" ><i class="icofont-law-document"></i> TNL section</button>
-                {{-- @else
+                @else
                     <button class="btn btn-info idk" disabled="true"><i class="icofont-law-document"></i> TNL section</button>
-                @endif --}}
-                {{-- @if ($status->Contract != 0) --}}
+                @endif
+                @if ($status->Contract != 0)
                     <button class="btn btn-info idk" data-toggle="modal" data-target="#contractModal" ><i class="icofont-search-document"></i> Contract</button>
-                {{-- @else
+                @else
                     <button class="btn btn-info idk" disabled="true"><i class="icofont-search-document"></i> Contract</button>
-                @endif --}}
+                @endif
                 <button class="btn btn-info idk" data-toggle="modal" data-target="#docsModal" id="documents"><i class="icofont-document-folder"></i> Upload your documents</button>
             </div>
             <div style="text-align: center; margin-top: 30px" class="col-md-4 offset-md-4" >

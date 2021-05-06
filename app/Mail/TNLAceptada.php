@@ -16,9 +16,10 @@ class TNLAceptada extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $msg;
+    public function __construct($message)
     {
-        //
+        $this->$msg = $message;
     }
 
     /**
