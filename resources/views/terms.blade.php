@@ -1,7 +1,8 @@
 @extends('layouts.template')
 
 @section('content')
-    <div  style="width: 1000px; margin-left: 300px; margin-top: 50px">
+<div class="flex-container" style="text-align: justify;">
+    <div style="margin-left: auto; margin-right: auto" >
         <div style="text-align: center">
             <h1>Terms</h1>
         </div>
@@ -38,4 +39,5 @@
             <li>By signing this purchase offer you will not be relinquishing the rights to your property.</li>
         </ul>
     </div>
+</div>
 @endsection

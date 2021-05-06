@@ -1610,6 +1610,11 @@ section {
     }
 }
 /*--------------------- form ---------------------------*/
+@media (max-width: 699px){
+    .groupBtn{
+        margin-top: 0px;
+    }
+}
 @media (max-width: 583px){
     .leftbox{
         display: none;
@@ -1657,6 +1662,14 @@ section {
     }
     .groupBtn{
         margin-top: 25px;
+    }
+}
+@media (min-width: 768px){
+    .btnContinue{
+        margin-top: 30px;
+    }
+    .btn-back{
+        margin-top: 30px;
     }
 }
 

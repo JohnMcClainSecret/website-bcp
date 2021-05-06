@@ -47,7 +47,7 @@ class OfferController extends Controller
         $offer->save();
 
         if($offer){
-            Mail::to('contact@businessconsultantprimebrokers.com')->send(new MailGetOffer($offer));
+            Mail::to('contact@bcpbrokers.com')->send(new MailGetOffer($offer));
             return  Redirect::back()->with('status', 'This request was successfully sent !');
         }else{
             return view('errorpage');

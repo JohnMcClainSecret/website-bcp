@@ -19,19 +19,33 @@
             {{-- Buttons General Documents  --}}
             <div style="margin-top: 50px">
                 <button  type="button" data-toggle="modal" id="loi" data-target="#loiModal" class="btn btn-info idk"><i class="icofont-file-document"></i>  L.O.I section</button>
-                @if ($status->TNL != 0)
+                {{-- @if ($status->TNL != 0) --}}
                     <button type="button" data-toggle="modal" data-target="#tnlModal" class="btn btn-info idk" ><i class="icofont-law-document"></i> TNL section</button>
-                @else
+                {{-- @else
                     <button class="btn btn-info idk" disabled="true"><i class="icofont-law-document"></i> TNL section</button>
-                @endif
-                @if ($status->Contract != 0)
+                @endif --}}
+                {{-- @if ($status->Contract != 0) --}}
                     <button class="btn btn-info idk" data-toggle="modal" data-target="#contractModal" ><i class="icofont-search-document"></i> Contract</button>
-                @else
+                {{-- @else
                     <button class="btn btn-info idk" disabled="true"><i class="icofont-search-document"></i> Contract</button>
-                @endif
+                @endif --}}
                 <button class="btn btn-info idk" data-toggle="modal" data-target="#docsModal" id="documents"><i class="icofont-document-folder"></i> Upload your documents</button>
             </div>
+            <div style="text-align: center; margin-top: 30px" class="col-md-4 offset-md-4" >
+                <h3>PROCEEDS</h3>
+                <table class="table">
+                    <tr>
+                        <td>Total Amount:</td>
+                        @if(isset($total))
+                            <td>$ {{$total->Total}}</td>
+                        @else
+                            <td>No Information</td>
+                        @endif
+                    </tr>
+                </table>
+            </div>
         </div>
+
         {{------------------------------------modal LOI-------------------------------------------- --}}
 
         <div class="modal fade bd-example-modal-lg" id="loiModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -283,7 +297,6 @@
             </div>
         </div>
         {{-- --------------------------------------------CONTRACT MODAL-------------------------------------- --}}
-
         {{-- modal Contract--}}
         <div class="modal fade bd-example-modal-lg" id="contractModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -406,7 +419,6 @@
             </div>
         </div>
         {{-- --------------------------------------------DOCUMENTS MODAL-------------------------------------- --}}
-
         {{-- modal --}}
         <div class="modal fade bd-example" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -429,6 +441,7 @@
                 </div>
             </div>
         </div>
+
 
     <style>
         #sig-canvas {

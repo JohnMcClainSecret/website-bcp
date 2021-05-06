@@ -324,6 +324,7 @@ class PanelController extends Controller
     public function downloadContract(){
         $offer = GetOffer::where('user_id',Auth::user()->id)->first();
         $signature = User::find(Auth::user()->id);
+        
         $data = [
             'Seller' => $offer->OwnerName,
             'Phone' => $offer->Phone,
@@ -331,12 +332,10 @@ class PanelController extends Controller
             'Resort' =>  $offer->ResortName,
             'Location' =>  $offer->Location,
             'UnitType' =>  $offer->typeRoom,
-            'Membership' =>  $offer->membership,
-            'Registered' =>  $offer->RegWeeks.' '.$offer->AdditionalWeek,
-            'Maintenance' => $offer->MaintFee,
-            'Exchange' => $offer->exchCompany,
+            'Registered' =>  $offer->RegWeeks,
             'PurchasePrice' => $offer->PurchasePrice,
             'Signature' => $signature->PathSignature,
+            'AddBenefits' => $offer->Benefits,
         ];
         $pdf = PDF::loadView('panel.contract', $data);
         return $pdf->download('Contract.pdf');

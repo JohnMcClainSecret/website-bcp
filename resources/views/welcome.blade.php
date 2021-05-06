@@ -198,11 +198,9 @@
     <!-- ======= Contact Us Section ======= -->
     <section id="contact" class="contact">
         <div class="container">
-
           <div class="section-title">
             <h2>Contact Us</h2>
           </div>
-
           <div class="row">
 
             <div class="col-lg-4 d-flex align-items-stretch" >
@@ -217,7 +215,7 @@
               <div class="info-box">
                 <i class="bx bx-envelope"></i>
                 <h3>Email Us</h3>
-                <p >contact@businessconsultantprimebrokers.com</p>
+                <p >contact@bcpbrokers.com</p>
               </div>
             </div>
 
@@ -225,7 +223,7 @@
               <div class="info-box ">
                 <i class="bx bx-phone-call"></i>
                 <h3>Call Us</h3>
-                <p>212 4611062</p>
+                <p>(212) 461-1062</p>(212) 658-9545</p>
               </div>
             </div>
 
@@ -256,7 +254,6 @@
                 {!! Form::close() !!}
             </div>
           </div>
-
         </div>
         <div class="justify-content-center">
             <div class="col-xl-12" style="margin-top: 50px">

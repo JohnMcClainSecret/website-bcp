@@ -172,9 +172,9 @@
                                     {!! Form::text('OtherExch', '', ['class'=>'form-control']) !!}
                                 </div>
                             </div>
-                            <div class="form-inline"  style="display: flex">
+                            <div class="form-inline"  >
                                 <div class=" form-group groupBtn">
-                                    <button type="button" class="btn btn-info btnBack" onclick="continuar(0)">Back</button>
+                                    <button type="button" class="btn btn-info btn-back" onclick="continuar(0)">Back</button>
                                     <button type="button" onclick="continuar(2)" class="btn btn-info btnContinue">Continue</button>
                                 </div>
                             </div>
@@ -186,7 +186,6 @@
                                 <h2 style=" color: green; font-size: 25px; text-align: center ">Important Info</h2>
                                 {!! Form::text('Benefits', '', ['class'=>'form-group form-control','placeholder'=>'Benefits']) !!}
                                 {!! Form::text('ResortName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Resort Name']) !!}
-                                {!! Form::text('Location', '', ['class'=>'form-control form-group ','placeholder'=>'Location']) !!}
                                 {!! Form::email('Email', '', ['class'=>'form-control form-group ','required','placeholder'=>'Email']) !!}
                                 {!! Form::text('OwnerName', '', ['class'=>'form-control form-group ','required','placeholder'=>'Owner Name']) !!}
                                 <div class="row">
@@ -197,17 +196,22 @@
                                         {!! Form::text('Availability', '', ['class'=>'form-control form-group','placeholder'=>'Availability']) !!}
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    {!! Form::text('Broker', '', ['class'=>'form-control form-group ','placeholder'=>'Do you have a broker? Put her/his name here']) !!}
+                                <div class="row">
+                                    <div class="col-md-6 formRow">
+                                        {!! Form::text('Location', '', ['class'=>'form-control form-group ','placeholder'=>'Location']) !!}
+                                    </div>
+                                    <div class="col-md-6 formRow">
+                                        {!! Form::text('Broker', '', ['class'=>'form-control form-group ','placeholder'=>'Broker name']) !!}
+                                    </div>
                                 </div>
                                 <div style="align-items: right">
-                                    <a href="{{ url('terms')}}">Accept Terms and Conditions </a>
+                                    <a href="{{ url('terms')}}" target="_blank">Accept Terms and Conditions </a>
                                     {!! Form::checkbox('Terms', '1',  ['class'=>'form-control','required']) !!}
                                 </div>
                                 {!! Form::hidden('Token', '', ['id'=>'token']) !!}
                                 <div class="form-inline"  style="display: flex">
                                     <div class=" form-group groupBtn">
-                                        <button type="button" class="btn btn-info" onclick="continuar(1)">Back</button>
+                                        <button type="button" class="btn btn-info btn-back" onclick="continuar(1)">Back</button>
                                         <button type="submit" onclick="continuar(3)" class="btn btn-info btnContinue">Continue</button>
                                     </div>
                                 </div>

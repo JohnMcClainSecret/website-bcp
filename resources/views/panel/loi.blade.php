@@ -29,6 +29,10 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
+        .table2, tr, td{
+            border: 1px solid rgb(255, 255, 255);
+            border-collapse: collapse;
+        }
         .center{
             margin-left: auto;
             margin-right: auto;
@@ -45,7 +49,7 @@
              flex: 1; */
             border-style: solid none;
             border-color: #17a2b8 #fff;
-            border-width: 3.5px 0px;
+            border-width: 3px 0px;
         }
             /** Define the footer rules **/
         footer {
@@ -86,6 +90,13 @@
             margin: 0;
             padding: 0;
         }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #1998ac6c;
+        }
+
+        .table-dark.table-striped tbody tr:nth-of-type(odd) {
+            background-color:#17a2b8;
+        }
     </style>
 </head>
 
@@ -94,22 +105,22 @@
         $current = Carbon::now()->format('m-d-Y');
     @endphp
     {{-- logo --}}
-    <div style="width: 50%; margin-left: 350px; margin-top: 10px;margin-bottom: 10px">
+    <div style="width: 50%; margin-left: 350px; margin-top: 10px;margin-bottom: 8px">
         <img src="{{ public_path('img/logo.png') }}" style="width: 100px; height: 100px">
     </div>
     {{-- datos de contacto --}}
     <div class="flexrow" >
-        <div style="text-align: center; font-family: Logo; font-size: 10px; line-height: 12px">
+        <div style="text-align: center; font-family: Logo; font-size: 9.5px; line-height: 10px; letter-spacing: 1px; font-weight: 1px; padding: 5px 0;">
             <label>199 Water Street, New Yor, NY, 10038</label> <br>
-            <label>Phone: </label> 212 4611062<br>
-            <label>Fax: </label> XXX-XXX-XXX<br>
+            <label>Phone: </label> (212) 4611062<br>
+            <label>Fax: </label> (212) 658-9545<br>
             <label><a href="www.bcpbrokers.com">www.bcpbrokers.com</a></label> <br>
             <label>contact@bcpbrokers.com</label> <br>
         </div>
     </div>
     {{-- textos --}}
     <div class='div'>
-        <p> <label style="font-family: BCP BOLD;"> BC Prime</label> BC Prime offers you combined years of experience along with exceptional customer service.
+        <p> <label style="font-family: BCP BOLD;"> BC Prime</label> BCP Prime offers you combined years of experience along with exceptional customer service.
             Our sales departmentwill assist you in all aspects of  this  international  acquisition
             including  the  production  of  current  market  evaluations  to  ensure  that  you  receive
             the  best value  for  your membership.
@@ -119,9 +130,9 @@
             of this Letter entitled “Non-Binding”.
             <br> The Purchase Offer listed is guaranteed as long as your membership’s description is accurate.
             Please verify that all the information specified below is correct.
-        </p>
-        <p>
-            <label style="font-family: BCP BOLD;">1. Property:</label> BC Primewill negotiate the resale of the following vacation membership:
+        </p><br>
+        <p style="margin-bottom: 5px">
+            <label style="font-family: BCP BOLD;">1. Property: BCP Prime</label> negotiate the resale of the following vacation membership:
         </p>
     </div>
     {{-- datos de user --}}
@@ -132,33 +143,55 @@
     </div>
     {{-- tabla con info --}}
     <div class="justify-content-center" style="margin-top: 20px">
-        <table class="table table-bordered center" style="margin: 0 120px">
+        <table class="table table-striped center" style="margin: 0 120px">
             <tbody>
                 <tr>
-                    <td style="font-family: BCP BOLD;">PURCHASE OFFER</td> <td style="font-family: BCP BOLD;">PURCHASE TERMS</td>
+                    <td style="font-family: BCP BOLD;">RENTAL OFFER</td> <td style="font-family: BCP BOLD;">PURCHASE TERMS</td>
                 </tr>
                 <tr>
                     <td>
-                        <label style="font-family: BCP BOLD;">Resort: {{ $Resort}}</label><br>
-                        <label style="font-family: BCP BOLD;">Location: {{$Location}}</label><br>
-                        <label style="font-family: BCP BOLD;">Type of Unit: {{$UnitType}}</label><br>
-                        <label style="font-family: BCP BOLD;">Registered Weeks / Points: {{ $Registered}}</label><br>
-                        <label style="font-family: BCP BOLD;">Membership: {{$Membership}}</label><br>
-                        <label style="font-family: BCP BOLD;">Current Usage Fee: {{$Maintenance}}</label><br>
+                        <table class="table-striped table2" style="font-family: BCP;">
+                            <tr>
+                                <td style="font-family: BCP BOLD; text-align: right;">Resort:</td>
+                                <td>{{ $Resort}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: BCP BOLD; text-align: right;">Location:</td>
+                                <td>{{$Location}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: BCP BOLD; text-align: right;">Type of Unit:</td>
+                                <td>{{$UnitType}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: BCP BOLD; text-align: right;">Registered Weeks / Points: </td>
+                                <td>{{ $Registered}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: BCP BOLD; text-align: right;">Membership:</td>
+                                <td>{{$Membership}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: BCP BOLD; text-align: right;">Current Usage Fee:</td>
+                                <td>{{$Maintenance}}</td>
+                            </tr>
+                        </table>
                     </td>
                     <td>
                         <p >
-                            -PRICE:The  proposed  purchase  price  is  ${{$PurchasePrice}} USD,  of which   would   be
+                            <label style="font-family: BCP BOLD;"> Price: </label>
+                            -The  proposed  purchase  price  is  ${{$PurchasePrice}} USD,  of which   would   be
                             deposited   in a Trust   Account   upon acceptance of a binding Purchase Agreement.
                             Buyer would pay the balance to Seller at closing.
                         </p>
                         <p>
-                            -COMMISSION:An 8% commission will be charged to the Seller(s)at the time of closing.
+                            -<label style="font-family: BCP BOLD;"> Comission: </label>An 8% commission will be charged to the Seller(s)at the time of closing.
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <td>Purchase Price:</td> <td>  </td>
+                    <td style="font-family: BCP BOLD; text-align: right">Purchase Price:</td>
+                    <td style="font-family: BCP">$ {{ $PurchasePrice}} </td>
                 </tr>
             </tbody>
         </table>
@@ -176,7 +209,7 @@
         </p>
     </div>
     <footer >
-        <p style="margin-top: 25px">© CopyrightBusiness Consultant Prime. All Rights Reseverves</p>
+        <p style="margin-top: 25px">© Copyright <label style="font-family: BCP BOLD;">Business Consultant Prime.</label>   All Rights Reservers</p>
     </footer>
     <hr>
     <div style="margin: 40px 45px">
@@ -185,8 +218,8 @@
             the  next  10  days  upon  its  delivery  date.  Upon  the understanding of this agreement, please
             sign and return a copy of this Letter of Intent and Proof of Ownership.
         </p>
-            <ol style="font-family: BCP">
-                <li>By signing this Purchase Offer you are not committing nor obligated to sell</li>
+            <ol type="a" style="font-family: BCP">
+                <li >By signing this Purchase Offer you are not committing nor obligated to sell</li>
                 <li>By signing this Purchase Offer you will not be relinquishing the rights to your property.</li>
             </ol>
         <p>For any questions or concerns, please contact your broker.</p>
@@ -212,24 +245,22 @@
     <div style="margin: 20px 45px">
         <p>
             Company Representative <br> Business Consultant Prime Brokers
-            <br>   New York,
-            <br> NYIssued:
+            <br>   New York,NY
+            <br> Issued:
         </p>
     </div>
      {{-- logo --}}
-     <div style="width: 50%; margin-left: 350px; margin-top: 110px;margin-bottom: 10px">
+     <div style="width: 50%; margin-left: 350px; margin-top: 150px;margin-bottom: 10px">
         <img src="{{ public_path('img/logo.png') }}" style="width: 100px; height: 100px">
     </div>
     {{-- datos de contacto --}}
-    <div>
-        <div style="text-align: center; font-family: Logo; font-size: 10px; line-height: 12px">
-            <br>
-            <label >199 Water Street, New Yor, NY, 10038</label> <br>
-            <label >Phone: 212 4611062</label> <br>
-            <label >Fax: XXXXXXXXXX</label> <br>
-            <label ><a href="www.bcpbrokers.com">www.bcpbrokers.com</a></label> <br>
-            <label >contact@businessconsultantprimebrokers.com</label> <br>
-        </div>
+    <div style="text-align: center; font-family: Logo; font-size: 8px; line-height: 8px;">
+        <br>
+        <label >199 Water Street, New Yor, NY, 10038</label> <br>
+        <label >Phone: (212) 4611062</label> <br>
+        <label >Fax: (212) 658-9545</label> <br>
+        <label ><a href="www.bcpbrokers.com">www.bcpbrokers.com</a></label> <br>
+        <label >contact@businessconsultantprimebrokers.com</label> <br>
     </div>
 </body>
 
