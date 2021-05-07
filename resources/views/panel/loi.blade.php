@@ -29,10 +29,10 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
-        .table2, tr, td{
+        /* .table2, tr, td{
             border: 1px solid rgb(255, 255, 255);
             border-collapse: collapse;
-        }
+        } */
         .center{
             margin-left: auto;
             margin-right: auto;
@@ -91,18 +91,18 @@
             padding: 0;
         }
         .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #1998ac6c;
+            background-color: #ffffff;
         }
 
         .table-dark.table-striped tbody tr:nth-of-type(odd) {
-            background-color:#17a2b8;
+            background-color:#ffffff;
         }
     </style>
 </head>
 
 <body>
     @php
-        $current = Carbon::now()->format('m-d-Y');
+        $current = Carbon::now()->format('l jS \\of F Y ');
     @endphp
     {{-- logo --}}
     <div style="width: 50%; margin-left: 350px; margin-top: 10px;margin-bottom: 8px">
@@ -149,38 +149,19 @@
                     <td style="font-family: BCP BOLD;">RENTAL OFFER</td> <td style="font-family: BCP BOLD;">PURCHASE TERMS</td>
                 </tr>
                 <tr>
-                    <td>
-                        <table class="table-striped table2" style="font-family: BCP;">
-                            <tr>
-                                <td style="font-family: BCP BOLD; text-align: right;">Resort:</td>
-                                <td>{{ $Resort}}</td>
-                            </tr>
-                            <tr>
-                                <td style="font-family: BCP BOLD; text-align: right;">Location:</td>
-                                <td>{{$Location}}</td>
-                            </tr>
-                            <tr>
-                                <td style="font-family: BCP BOLD; text-align: right;">Type of Unit:</td>
-                                <td>{{$UnitType}}</td>
-                            </tr>
-                            <tr>
-                                <td style="font-family: BCP BOLD; text-align: right;">Registered Weeks / Points: </td>
-                                <td>{{ $Registered}}</td>
-                            </tr>
-                            <tr>
-                                <td style="font-family: BCP BOLD; text-align: right;">Membership:</td>
-                                <td>{{$Membership}}</td>
-                            </tr>
-                            <tr>
-                                <td style="font-family: BCP BOLD; text-align: right;">Current Usage Fee:</td>
-                                <td>{{$Maintenance}}</td>
-                            </tr>
-                        </table>
+                    <td style="font-family: BCP BOLD;" width="50%">
+                        <label for="">Resort: {{ $Resort}}</label>
+                        <label for="">Season: Red</label> <br>
+                        <label for="">Location: {{$Location}}</label> <br>
+                        <label for="">Type of Unit: {{$UnitType}}</label> <br>
+                        <label for="">Registered Weeks / Points: {{ $Registered}}</label> <br>
+                        <label for="">Membership: {{$Membership}}</label> <br>
+                        <label for="">Current Usage Fee: {{$Maintenance}}</label>
                     </td>
-                    <td>
+                    <td  width="50%">
                         <p >
-                            <label style="font-family: BCP BOLD;"> Price: </label>
-                            -The  proposed  purchase  price  is  ${{$PurchasePrice}} USD,  of which   would   be
+                            <label style="font-family: BCP BOLD;"> - Price: </label>
+                            The  proposed  purchase  price  is  ${{$PurchasePrice}} USD,  of which   would   be
                             deposited   in a Trust   Account   upon acceptance of a binding Purchase Agreement.
                             Buyer would pay the balance to Seller at closing.
                         </p>
@@ -190,8 +171,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="font-family: BCP BOLD; text-align: right">Purchase Price:</td>
-                    <td style="font-family: BCP">$ {{ $PurchasePrice}} </td>
+                    <td style="font-family: BCP BOLD; text-align: right; font-size: 19px">Purchase Price: $ {{ $PurchasePrice}}  USD</td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
@@ -229,16 +210,20 @@
     {{-- Firmas --}}
     <div class="row" style="margin: 130px 45px">
         <div class="col-md-6">
-            <label style="font-family: BCP BOLD;"> Broker: _________________________</label>
+            <label style="font-family: BCP BOLD;"> Broker:
+                <img src="{{$BrokerSignature}}" style="width: 200px">
+            </label>
             @if (isset($Signature))
-                <label style="font-family: BCP BOLD;margin-left: 20px"> Designated Member:</label>
+                <label style="font-family: BCP BOLD;margin-left: 130px"> Designated Member:</label>
                 <img src="{{$Signature}}" style="width: 100px">
             @else
-                <label style="font-family: BCP BOLD;margin-left: 20px"> Designated Member: _______________________</label>
+                <label style="font-family: BCP BOLD;margin-left: 80px"> Designated Member: _______________________</label>
             @endif
         </div> <br>
         <div class="col-md-6">
-            <label style="font-family: BCP BOLD; "> Business Consultant Prime Brokers</label>
+            <label style="font-family: BCP BOLD; ">
+                {{$BrokerName}} <br>
+                Business Consultant Prime Brokers</label>
             <label style="font-family: BCP BOLD; margin-left: 130px"> Co-Member: ____________________________</label>
         </div>
     </div>
@@ -246,11 +231,11 @@
         <p>
             Company Representative <br> Business Consultant Prime Brokers
             <br>   New York,NY
-            <br> Issued:
+            <br> Issued: {{$current}}
         </p>
     </div>
      {{-- logo --}}
-     <div style="width: 50%; margin-left: 350px; margin-top: 150px;margin-bottom: 10px">
+     <div style="width: 50%; margin-left: 350px; margin-top: 90px;margin-bottom: 10px">
         <img src="{{ public_path('img/logo.png') }}" style="width: 100px; height: 100px">
     </div>
     {{-- datos de contacto --}}

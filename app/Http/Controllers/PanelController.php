@@ -24,7 +24,7 @@ class PanelController extends Controller
         $offer = GetOffer::where('user_id',Auth::user()->id)->first();
 
         $signature = User::find(Auth::user()->id);
-
+        // dd($offer->employee);
         $data = [
             'Seller' => $offer->OwnerName,
             'Phone' => $offer->Phone,
@@ -38,7 +38,10 @@ class PanelController extends Controller
             'Exchange' => $offer->exchCompany,
             'PurchasePrice' => $offer->PurchasePrice,
             'Signature' => $signature->PathSignature,
+            'BrokerSignature' => $offer->employee->Firma,
+            'BrokerName' => $offer->employee->Name,
         ];
+
         $pdf = PDF::loadView('panel.loi', $data);
         return $pdf->download('l.o.i.pdf');
     }
@@ -335,6 +338,7 @@ class PanelController extends Controller
             'PurchasePrice' => $offer->PurchasePrice,
             'Signature' => $signature->PathSignature,
             'AddBenefits' => $offer->Benefits,
+
         ];
         $pdf = PDF::loadView('panel.contract', $data);
         return $pdf->download('Contract.pdf');
