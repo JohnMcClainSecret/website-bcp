@@ -121,6 +121,8 @@ class PanelController extends Controller
                     'Exchange' => $offer->exchCompany,
                     'PurchasePrice' => $offer->PurchasePrice,
                     'Signature' => $signature->PathSignature,
+                    'BrokerSignature' => $offer->employee->Firma,
+                    'BrokerName' => $offer->employee->Name,
                 ];
 
                 $pdf = PDF::loadView('panel.loi', $data);
@@ -141,7 +143,7 @@ class PanelController extends Controller
                 $offer->Status = 'Aceptado';
                 $offer->save();
 
-                Mail::to('hawaicincoceronomams@gmail.com')->send(new LOIAceptada());
+                Mail::to('hawaicincoceronomams@gmail.com')->send(new LOIAceptada($offer));
                 return $pdf->download('L.O.I');
             }else{
                 return Redirect::back()->with('status', 'Sorry, we did not find your signature in our Database, please try again. !');
@@ -159,6 +161,8 @@ class PanelController extends Controller
                 'Maintenance' => $offer->MaintFee,
                 'Exchange' => $offer->exchCompany,
                 'PurchasePrice' => $offer->PurchasePrice,
+                'BrokerSignature' => $offer->employee->Firma,
+                'BrokerName' => $offer->employee->Name,
             ];
 
             $pdf = PDF::loadView('panel.loi', $data);
@@ -202,6 +206,8 @@ class PanelController extends Controller
             'Exchange' => $offer->exchCompany,
             'PurchasePrice' => $offer->PurchasePrice,
             'Signature' => $signature->PathSignature,
+            'BrokerSignature' => $offer->employee->Firma,
+            'BrokerName' => $offer->employee->Name,
         ];
         $pdf = PDF::loadView('panel.tnlPDF', $data);
         return $pdf->download('TNL.pdf');
@@ -278,6 +284,8 @@ class PanelController extends Controller
                     'Exchange' => $offer->exchCompany,
                     'PurchasePrice' => $offer->PurchasePrice,
                     'Signature' => $signature->PathSignature,
+                    'BrokerSignature' => $offer->employee->Firma,
+                    'BrokerName' => $offer->employee->Name,
                 ];
 
                 $pdf = PDF::loadView('panel.tnlPDF', $data);
@@ -305,6 +313,8 @@ class PanelController extends Controller
                 'Maintenance' => $offer->MaintFee,
                 'Exchange' => $offer->exchCompany,
                 'PurchasePrice' => $offer->PurchasePrice,
+                'BrokerSignature' => $offer->employee->Firma,
+                'BrokerName' => $offer->employee->Name,
             ];
 
             $pdf = PDF::loadView('panel.tnlPDF', $data);
@@ -338,7 +348,8 @@ class PanelController extends Controller
             'PurchasePrice' => $offer->PurchasePrice,
             'Signature' => $signature->PathSignature,
             'AddBenefits' => $offer->Benefits,
-
+            'BrokerSignature' => $offer->employee->Firma,
+            'BrokerName' => $offer->employee->Name,
         ];
         $pdf = PDF::loadView('panel.contract', $data);
         return $pdf->download('Contract.pdf');
@@ -413,6 +424,8 @@ class PanelController extends Controller
                 'Exchange' => $offer->exchCompany,
                 'PurchasePrice' => $offer->PurchasePrice,
                 'Signature' => $signature->PathSignature,
+                'BrokerSignature' => $offer->employee->Firma,
+                'BrokerName' => $offer->employee->Name,
             ];
 
             $pdf = PDF::loadView('panel.contract', $data);

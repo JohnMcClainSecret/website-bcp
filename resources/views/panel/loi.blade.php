@@ -214,10 +214,10 @@
                 <img src="{{$BrokerSignature}}" style="width: 200px">
             </label>
             @if (isset($Signature))
-                <label style="font-family: BCP BOLD;margin-left: 130px"> Designated Member:</label>
-                <img src="{{$Signature}}" style="width: 100px">
+                <label style="font-family: BCP BOLD;margin-left: 70px"> Designated Member:</label>
+                <img src="{{$Signature}}" style="width: 200px">
             @else
-                <label style="font-family: BCP BOLD;margin-left: 80px"> Designated Member: _______________________</label>
+                <label style="font-family: BCP BOLD;margin-left: 20px"> Designated Member: _______________________</label>
             @endif
         </div> <br>
         <div class="col-md-6">
