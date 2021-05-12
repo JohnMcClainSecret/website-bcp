@@ -161,7 +161,7 @@
                     <td  width="50%">
                         <p >
                             <label style="font-family: BCP BOLD;"> - Price: </label>
-                            The  proposed  purchase  price  is  ${{$PurchasePrice}} USD,  of which   would   be
+                            The  proposed  purchase  price  is  ${{number_format($PurchasePrice)}} USD,  of which   would   be
                             deposited   in a Trust   Account   upon acceptance of a binding Purchase Agreement.
                             Buyer would pay the balance to Seller at closing.
                         </p>
@@ -171,7 +171,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="font-family: BCP BOLD; text-align: right; font-size: 19px">Purchase Price: $ {{ $PurchasePrice}}  USD</td>
+                    <td style="font-family: BCP BOLD; text-align: right; font-size: 19px">Purchase Price: $ {{ number_format($PurchasePrice)}}  USD</td>
                     <td></td>
                 </tr>
             </tbody>
@@ -208,18 +208,19 @@
         <p>Sincerely, </p>
     </div>
     {{-- Firmas --}}
-    <div class="row" style="margin: 130px 45px">
+    <div class="row" style="margin: 100px 45px 130px">
         <div class="col-md-6">
             <label style="font-family: BCP BOLD;"> Broker:
-                <img src="{{$BrokerSignature}}" style="width: 200px">
+                <img src="{{$BrokerSignature}}" style="width: 150px; height: 150px">
+                {{-- {{$BrokerName}} --}}
             </label>
             @if (isset($Signature))
-                <label style="font-family: BCP BOLD;margin-left: 70px"> Designated Member:</label>
+                <label style="font-family: BCP BOLD;margin-left: 120px"> Designated Member:</label>
                 <img src="{{$Signature}}" style="width: 200px">
             @else
-                <label style="font-family: BCP BOLD;margin-left: 20px"> Designated Member: _______________________</label>
+                <label style="font-family: BCP BOLD;margin-left: 110px"> Designated Member: _______________________</label>
             @endif
-        </div> <br>
+        </div>
         <div class="col-md-6">
             <label style="font-family: BCP BOLD; ">
                 {{$BrokerName}} <br>
@@ -235,7 +236,7 @@
         </p>
     </div>
      {{-- logo --}}
-     <div style="width: 50%; margin-left: 350px; margin-top: 90px;margin-bottom: 10px">
+     <div style="width: 50%; margin-left: 350px; margin-top: 70px;margin-bottom: 10px">
         <img src="{{ public_path('img/logo.png') }}" style="width: 100px; height: 100px">
     </div>
     {{-- datos de contacto --}}
@@ -250,3 +251,4 @@
 </body>
 
 </html>
+

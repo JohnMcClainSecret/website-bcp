@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\GetOffer;
+use App\Models\Employee;
 use App\Mail\MailGetOffer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -10,7 +11,13 @@ use Illuminate\Support\Facades\Mail;
 class OfferController extends Controller
 {
     public function getanoffer(){
-        return view('offer');
+        $brokers = Employee::all();
+        $broker[0]='Select one';
+
+        foreach($brokers as $brok){
+            $broker[] = $brok->Name;
+        }
+        return view('offer', compact(('broker')));
     }
 
     public function terms(){
@@ -42,7 +49,7 @@ class OfferController extends Controller
         $offer->Selling = $request->Selling;
         $offer->Rental = $request->Rental;
         $offer->Terms = $request->Terms;
-        $offer->Broker = $request->Broker;
+        $offer->id_employee = $request->Broker;
         $offer->typeRoom = $request->typeRoom;
         $offer->save();
 

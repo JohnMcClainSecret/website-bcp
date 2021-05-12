@@ -104,11 +104,11 @@
                             <label style=" color: gray; width: 80%;text-transform: uppercase;
                                 letter-spacing: 1px;margin-left: 2px;">Reg Weeks x year
                             </label>
-                            {!! Form::number('RegWeeks', '', ['class'=>'form-control', 'required']) !!}
+                            {!! Form::number('RegWeeks', '', ['class'=>'form-control']) !!}
                             <label style=" color: gray; width: 80%;text-transform: uppercase;
                                 letter-spacing: 1px;margin-left: 2px;">Additional Week
                             </label>
-                            {!! Form::number('AdditionalWeek', '', ['class'=>'form-control','required']) !!}
+                            {!! Form::number('AdditionalWeek', '', ['class'=>'form-control']) !!}
                             <button type="button" onclick="continuar(1)" style="position: relative; margin-left: 250px;" class="btn btn-info marginBtn">Continue</button>
                         </div>
                     </div>
@@ -201,7 +201,8 @@
                                         {!! Form::text('Location', '', ['class'=>'form-control form-group ','placeholder'=>'Location']) !!}
                                     </div>
                                     <div class="col-md-6 formRow">
-                                        {!! Form::text('Broker', '', ['class'=>'form-control form-group ','placeholder'=>'Broker name']) !!}
+                                        {!! Form::select('Broker', $broker, '', ['class'=>'form-control form-group ']) !!}
+                                        {{-- {!! Form::text('Broker', '', ['class'=>'form-control form-group ','placeholder'=>'Broker name']) !!} --}}
                                     </div>
                                 </div>
                                 <div style="align-items: right">

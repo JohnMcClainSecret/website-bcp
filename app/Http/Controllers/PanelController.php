@@ -22,7 +22,7 @@ class PanelController extends Controller
     }
     public function downloadLOI(){
         $offer = GetOffer::where('user_id',Auth::user()->id)->first();
-
+        
         $signature = User::find(Auth::user()->id);
         // dd($offer->employee);
         $data = [
