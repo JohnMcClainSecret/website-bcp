@@ -9,13 +9,22 @@ use App\Mail\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
     public function submit(Request $request){
         $contact = new Contact();
 
-        // if($request->Token != null){
+        $rules =  array('captcha' => ['required', 'captcha']);
+        $validator = Validator::make(
+            [ 'captcha' => $request->captcha ],
+            $rules,
+            // Mensaje de error personalizado
+            [ 'captcha' => 'El captcha ingresado es incorrecto.' ]
+        );
+
+        if ($validator->passes()) {
             $contact->Name = $request->name;
             $contact->Email = $request->email;
             $contact->Subject = $request->subject;
@@ -28,9 +37,9 @@ class ContactController extends Controller
             }else{
                 return view('errorpage');
             }
-        // }else{
-        //     return view('errorpage');
-        // }
+        } else {
+            return  Redirect::back()->with('status', 'The captcha used is not correct, verify and try again please');
+        }
     }
     public function welcome(){
         $offers = LiveOffer::all();

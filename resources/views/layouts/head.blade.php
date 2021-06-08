@@ -24,7 +24,13 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
-
+    <script type="text/javascript">
+        var onloadCallback = function() {
+          grecaptcha.render('html_element', {
+            'sitekey' : '6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9'
+          });
+        };
+    </script>
     <!-- =======================================================
     * Template Name: Mamba - v2.5.1
     * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/

@@ -247,11 +247,18 @@
                         <textarea class="form-control" name="message" rows="5" data-rule="required" style="resize: none" data-msg="Please write something for us" placeholder="Message"></textarea>
                     <div class="validate"></div>
                     </div>
+                    <div class="form-inline ">
+                        {!! Captcha::img(); !!}
+                        {!! Form::text('captcha','',['class'=>'form-control col-md-2', 'style'=>'margin-left: 10px']) !!}
+                        
+                    </div>
                     {!! Form::hidden('Token', '', ['id'=>'token']) !!}
+
                     <div class="text-center">
                         <button class="btn btn-info" data-action='submit' >Submit</button>
                     </div>
                 {!! Form::close() !!}
+
             </div>
           </div>
         </div>
@@ -280,14 +287,23 @@
 @endsection
 
 @section('scripts')
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9"></script>
+    {{-- <script src="https://www.google.com/recaptcha/api.js?render=6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9"></script>
     <script>
         grecaptcha.ready(function() {
             grecaptcha.execute('6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9', {action: 'homepage'}).then(function(token) {
                 document.getElementById('token').value = token;
             });
         });
+    </script> --}}
+
+    <script type="text/javascript">
+        var onloadCallback = function() {
+          grecaptcha.render('html_element', {
+            'sitekey' : '6LdmqHEaAAAAANPhgR5iJ2-kq2SeiSzSNu4RM0B9'
+          });
+        };
     </script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function(){
