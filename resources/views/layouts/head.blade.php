@@ -7,7 +7,7 @@
     <meta content="" name="brokers, bcp, broker, investment, timeshare, share my time, time, share, bcp brokers, BCP">
 
     <!-- Favicons -->
-    <link href="{{ asset('img/logo.png')}}" rel="icon">
+    <link href="{{ asset('img/logo-bcp.png')}}" rel="icon">
     {{-- <link href="{{ asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon"> --}}
 
     <!-- Google Fonts -->

@@ -19,11 +19,9 @@ class OfferController extends Controller
         }
         return view('offer', compact(('broker')));
     }
-
     public function terms(){
         return view('terms');
     }
-
     public function sendOffer(Request $request){
         $offer = new GetOffer();
 
@@ -46,8 +44,7 @@ class OfferController extends Controller
         $offer->OwnerName = $request->OwnerName;
         $offer->Phone = $request->Phone;
         $offer->Availability = $request->Availability;
-        $offer->Selling = $request->Selling;
-        $offer->Rental = $request->Rental;
+        $offer->TipoVenta = 1;
         $offer->Terms = $request->Terms;
         $offer->id_employee = $request->Broker;
         $offer->typeRoom = $request->typeRoom;

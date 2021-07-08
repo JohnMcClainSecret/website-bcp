@@ -250,7 +250,7 @@
                     <div class="form-inline ">
                         {!! Captcha::img(); !!}
                         {!! Form::text('captcha','',['class'=>'form-control col-md-2', 'style'=>'margin-left: 10px']) !!}
-                        
+
                     </div>
                     {!! Form::hidden('Token', '', ['id'=>'token']) !!}
 
@@ -267,16 +267,16 @@
                 {{-- style="margin: 30px 200px " --}}
                 <div class="owl-carousel clients-carousel row" >
                     <div class="col-md-3 col-sm-6 my-3 responsive">
-                        <img style="margin-left: 30px" src="img/timeshare.png" alt="">
+                        <img style="margin-left: 50px;width: 250px; height: 100px;" src="{{ asset('img/timeshare.png') }}" >
                     </div>
                     <div class="col-md-3 col-sm-6 my-3 responsive1 ">
-                        <img style="margin-left: 30px" src="img/caa.png" alt="">
+                        <img style="margin-left: 50px;width: 80px; height: 110px;" src="{{ asset('img/caa.jpg') }}" >
                     </div>
                     <div  class="col-md-3 col-sm-6 my-3 responsive responsive2">
-                        <img style="margin-left: 30px" src="img/tbs.png" alt="">
+                        <img style="margin-left: 10px;width: 250px; height: 100px;" src="{{ asset('img/tsc.png')}}" >
                     </div>
                     <div  class="col-md-3 col-sm-6 my-3 responsive1">
-                        <img style="margin-left: 30px" src="img/inc.png" alt="">
+                        <img style="margin-left: 30px;width: 150px; height: 90px;" src="{{ asset('img/inc.png') }}" >
                     </div>
                 </div>
             </div>

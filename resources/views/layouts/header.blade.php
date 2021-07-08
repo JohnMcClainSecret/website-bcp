@@ -2,7 +2,7 @@
   <header id="header">
     <div class="container">
         <div class="logo float-left">
-            <a href="/"><img src="{{ asset('img/logo.png')}}" alt="" class="img-fluid"></a>
+            <a href="/"><img src="{{ asset('img/logo-bcp.png')}}" alt="" class="img-fluid"></a>
         </div>
         <nav class="nav-menu float-right d-none d-lg-block" style="margin-top: 25px">
             <ul>

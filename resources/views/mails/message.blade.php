@@ -1,5 +1,5 @@
 <div style="background-color: #5c768d; height: 50px; color: white; text-align: center; style= 'border-style: solid;border-color: #111111;'>
-    <img src="{{url('img/logo.png')}}" style="width: 50px; height: 50px">
+    <img src="{{url('img/logo-bcp.png')}}" style="width: 50px; height: 50px">
 
 </div>
 <div style= 'border-style: solid;border-color: #111111;'>

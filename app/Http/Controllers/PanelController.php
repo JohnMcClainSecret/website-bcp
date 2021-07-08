@@ -22,7 +22,7 @@ class PanelController extends Controller
     }
     public function downloadLOI(){
         $offer = GetOffer::where('user_id',Auth::user()->id)->first();
-        
+
         $signature = User::find(Auth::user()->id);
         // dd($offer->employee);
         $data = [
@@ -33,17 +33,31 @@ class PanelController extends Controller
             'Location' =>  $offer->Location,
             'UnitType' =>  $offer->typeRoom,
             'Membership' =>  $offer->membership,
-            'Registered' =>  $offer->RegWeeks.' '.$offer->AdditionalWeek,
+            'Registered' =>  $offer->RegWeeks,
+            'Additional' => $offer->AdditionalWeek,
             'Maintenance' => $offer->MaintFee,
             'Exchange' => $offer->exchCompany,
+            'Weeks' => $offer->Weeks,
+            'PerWeek' => $offer->PerWeek,
             'PurchasePrice' => $offer->PurchasePrice,
-            'Signature' => $signature->PathSignature,
             'BrokerSignature' => $offer->employee->Firma,
             'BrokerName' => $offer->employee->Name,
+            'Season' => $offer->season,
         ];
 
-        $pdf = PDF::loadView('panel.loi', $data);
-        return $pdf->download('l.o.i.pdf');
+        if($offer->Idiom == 1 && $offer->TipoVenta == 1){
+            $pdf = PDF::loadView('panel.myPDF-selling', $data);
+            return $pdf->download('offer.pdf');
+        }elseif($offer->Idiom == 1 && $offer->TipoVenta == 2){
+            $pdf = PDF::loadView('panel.myPDF-rental', $data);
+            return $pdf->download('offer.pdf');
+        }elseif($offer->Idiom == 2 && $offer->TipoVenta == 1){
+            $pdf = PDF::loadView('panel.myPDF-español-selling', $data);
+            return $pdf->download('offer.pdf');
+        }elseif($offer->Idiom == 2 && $offer->TipoVenta == 2){
+            $pdf = PDF::loadView('panel.myPDF-español-rental', $data);
+            return $pdf->download('offer.pdf');
+        }
     }
     public function submitLOI(Request $request){
         $id = Auth::user()->id;

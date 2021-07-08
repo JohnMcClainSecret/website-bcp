@@ -146,20 +146,27 @@
         <table class="table table-striped center" style="margin: 0 120px">
             <tbody>
                 <tr>
-                    <td style="font-family: BCP BOLD;">RENTAL OFFER</td> <td style="font-family: BCP BOLD;">PURCHASE TERMS</td>
+                    <td style="font-family: BCP BOLD;">SELLING OFFER</td> <td style="font-family: BCP BOLD;">PURCHASE TERMS</td>
                 </tr>
                 <tr>
-                    <td style="font-family: BCP BOLD;" width="50%">
-                        <label for="">Resort: {{ $Resort}}</label>
-                        <label for="">Season: Red</label> <br>
-                        <label for="">Location: {{$Location}}</label> <br>
-                        <label for="">Type of Unit: {{$UnitType}}</label> <br>
-                        <label for="">Registered Weeks / Points: {{ $Registered}}</label> <br>
-                        <label for="">Membership: {{$Membership}}</label> <br>
-                        <label for="">Current Usage Fee: {{$Maintenance}}</label>
-                    </td>
                     <td  width="50%">
-                        <p >
+                        <label style="font-family: BCP BOLD;">Resort:</label> <label style="font-family: BCP;">{{ $Resort}}</label><br>
+                        <label style="font-family: BCP BOLD;">Season:</label> <label style="font-family: BCP;">Red</label> <br>
+                        <label style="font-family: BCP BOLD;">Location:</label> <label style="font-family: BCP;">{{$Location}}</label>  <br>
+                        <label style="font-family: BCP BOLD;">Type of Unit:</label> <label style="font-family: BCP;">{{$UnitType}}</label><br>
+                        @if ($Additional > 0)
+                            <label style="font-family: BCP BOLD;">Registered Weeks / Points:</label> <label style="font-family: BCP;">
+                            {{ $Registered}} Registered week and {{$Additional}} Additional Weeks</label> <br>
+                        @else
+                            <label style="font-family: BCP BOLD;">Registered Weeks / Points:</label> <label style="font-family: BCP;">
+                            {{ $Registered}} Registered week</label> <br>
+                        @endif
+
+                        <label style="font-family: BCP BOLD;">Membership:</label> <label style="font-family: BCP;"> {{$Membership}} </label> <br>
+                        <label style="font-family: BCP BOLD;">Current Usage Fee: </label> <label style="font-family: BCP;">{{$Maintenance}}</label>
+                    </td>
+                    <td width="50%">
+                        <p style="text-align: justify">
                             <label style="font-family: BCP BOLD;"> - Price: </label>
                             The  proposed  purchase  price  is  ${{number_format($PurchasePrice)}} USD,  of which   would   be
                             deposited   in a Trust   Account   upon acceptance of a binding Purchase Agreement.
@@ -211,7 +218,7 @@
     <div class="row" style="margin: 100px 45px 130px">
         <div class="col-md-6">
             <label style="font-family: BCP BOLD;"> Broker:
-                <img src="{{$BrokerSignature}}" style="width: 150px; height: 150px">
+                <img src="{{$BrokerSignature}}" style="width: 200px; height: 150px">
                 {{-- {{$BrokerName}} --}}
             </label>
             @if (isset($Signature))
@@ -236,8 +243,12 @@
         </p>
     </div>
      {{-- logo --}}
-     <div style="width: 50%; margin-left: 350px; margin-top: 70px;margin-bottom: 10px">
-        <img src="{{ public_path('img/logo-bcp.png') }}" style="width: 100px; height: 100px">
+     <div style="width: 50%; margin-left: 60px; margin-top: 70px;margin-bottom: 10px">
+        <img  src="{{ public_path('img/caa.jpg') }}" style=" margin: 0 25px; width: 50px; height: 50px" >
+        <img  src="{{ public_path('img/timeshare.png') }}"  style=" margin: 0 25px; width: 120px; height: 50px" >
+        <img  src="{{ public_path('img/logo-bcp.png') }}" style="width: 100px; height: 100px">
+        <img  src="{{ public_path('img/inc.png') }}"  style=" margin: 0 25px 0 40px; width: 50px; height: 40px" >
+        <img  src="{{ public_path('img/tsc.png')}}" style=" margin: 0 25px; width: 150px; height: 50px" >
     </div>
     {{-- datos de contacto --}}
     <div style="text-align: center; font-family: Logo; font-size: 8px; line-height: 8px;">
@@ -251,4 +262,3 @@
 </body>
 
 </html>
-

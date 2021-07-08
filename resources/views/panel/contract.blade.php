@@ -109,7 +109,7 @@
     @endphp
     {{-- logo --}}
     <div style="width: 50%; margin-left: 350px; margin-top: 10px;">
-        <img src="{{ public_path('img/logo.png') }}" style="width: 100px; height: 100px">
+        <img src="{{ public_path('img/logo-bcp.png') }}" style="width: 100px; height: 100px">
     </div>
     {{-- datos de contacto --}}
     <div class="flexrow">
