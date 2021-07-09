@@ -5,6 +5,10 @@ use App\Models\GetOffer;
 use App\Models\Files;
 use App\Models\User;
 use App\Models\Documents;
+use App\Models\Deposit;
+use App\Models\TrustsInfo;
+use App\Models\Employee;
+use App\Models\Contract;
 use App\Mail\LOIAceptada;
 use App\Mail\TNLAceptada;
 use App\Mail\ContractAceptada;
@@ -43,6 +47,7 @@ class PanelController extends Controller
             'BrokerSignature' => $offer->employee->Firma,
             'BrokerName' => $offer->employee->Name,
             'Season' => $offer->season,
+            'Signature' => $signature->PathSignature,
         ];
 
         if($offer->Idiom == 1 && $offer->TipoVenta == 1){
@@ -83,7 +88,7 @@ class PanelController extends Controller
             $offer->Status = 'Aceptado';
             $offer->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new LOIAceptada($offer));
+            Mail::to('contact@bcpbrokers.com')->send(new LOIAceptada($offer));
             return back();
         }else{
             return Redirect::back()->with('status', 'Sorry, we did not find any document to upload, please try again. !');
@@ -130,16 +135,33 @@ class PanelController extends Controller
                     'Location' =>  $offer->Location,
                     'UnitType' =>  $offer->typeRoom,
                     'Membership' =>  $offer->membership,
-                    'Registered' =>  $offer->RegWeeks.' '.$offer->AdditionalWeek,
+                    'Registered' =>  $offer->RegWeeks,
+                    'Additional' => $offer->AdditionalWeek,
                     'Maintenance' => $offer->MaintFee,
                     'Exchange' => $offer->exchCompany,
+                    'Weeks' => $offer->Weeks,
+                    'PerWeek' => $offer->PerWeek,
                     'PurchasePrice' => $offer->PurchasePrice,
-                    'Signature' => $signature->PathSignature,
                     'BrokerSignature' => $offer->employee->Firma,
                     'BrokerName' => $offer->employee->Name,
+                    'Season' => $offer->season,
+                    'Signature' => $signature->PathSignature,
                 ];
 
-                $pdf = PDF::loadView('panel.loi', $data);
+
+                if($offer->Idiom == 1 && $offer->TipoVenta == 1){
+                    $pdf = PDF::loadView('panel.myPDF-selling', $data);
+                    // return $pdf->download('offer.pdf');
+                }elseif($offer->Idiom == 1 && $offer->TipoVenta == 2){
+                    $pdf = PDF::loadView('panel.myPDF-rental', $data);
+                    // return $pdf->download('offer.pdf');
+                }elseif($offer->Idiom == 2 && $offer->TipoVenta == 1){
+                    $pdf = PDF::loadView('panel.myPDF-español-selling', $data);
+                    // return $pdf->download('offer.pdf');
+                }elseif($offer->Idiom == 2 && $offer->TipoVenta == 2){
+                    $pdf = PDF::loadView('panel.myPDF-español-rental', $data);
+                    // return $pdf->download('offer.pdf');
+                }
                 Storage::put('public/users/'.$signature->id.'-'.$signature->name.'/L.O.I.pdf',$pdf->output()) ;
 
                 $files = Files::where('user_id', Auth::user()->id)->first();
@@ -157,7 +179,7 @@ class PanelController extends Controller
                 $offer->Status = 'Aceptado';
                 $offer->save();
 
-                Mail::to('hawaicincoceronomams@gmail.com')->send(new LOIAceptada($offer));
+                Mail::to('contact@bcpbrokers.com')->send(new LOIAceptada($offer));
                 return $pdf->download('L.O.I');
             }else{
                 return Redirect::back()->with('status', 'Sorry, we did not find your signature in our Database, please try again. !');
@@ -197,7 +219,7 @@ class PanelController extends Controller
             $offer->Status = 'Aceptado';
             $offer->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new LOIAceptada());
+            Mail::to('contact@bcpbrokers.com')->send(new LOIAceptada());
             return $pdf->download('L.O.I');
         }
     }
@@ -206,9 +228,12 @@ class PanelController extends Controller
 
     public function downloadTNL(){
         $offer = GetOffer::where('user_id',Auth::user()->id)->first();
-        $signature = User::find(Auth::user()->id);
+        $trust = TrustsInfo::where('user_id',$offer->user_id)->first();
+        $pays = Deposit::where('user_id',$offer->user_id)->get();
+        $employee = Employee::find($offer->employee->id);
+
         $data = [
-            'Seller' => $offer->OwnerName,
+            'OwnerName' => $offer->OwnerName,
             'Phone' => $offer->Phone,
             'Email' => $offer->Email,
             'Resort' =>  $offer->ResortName,
@@ -219,11 +244,21 @@ class PanelController extends Controller
             'Maintenance' => $offer->MaintFee,
             'Exchange' => $offer->exchCompany,
             'PurchasePrice' => $offer->PurchasePrice,
-            'Signature' => $signature->PathSignature,
-            'BrokerSignature' => $offer->employee->Firma,
-            'BrokerName' => $offer->employee->Name,
+            'trust' =>$trust,
+            'IdAgent' => $employee->IdNumber,
+            'pays'=>$pays,
         ];
-        $pdf = PDF::loadView('panel.tnlPDF', $data);
+
+        if($offer->Idiom == 1 && $offer->TipoVenta == 1){
+            $pdf = PDF::loadView('panel.tnl', $data);
+        }elseif($offer->Idiom == 1 && $offer->TipoVenta == 2){
+            $pdf = PDF::loadView('panel.tnl', $data);
+        }
+        // elseif($offer->Idiom == 2 && $offer->TipoVenta == 1){
+        //     $pdf = PDF::loadView('panel.myPDF-español-selling', $data);
+        // }elseif($offer->Idiom == 2 && $offer->TipoVenta == 2){
+        //     $pdf = PDF::loadView('panel.myPDF-español-rental', $data);
+        // }
         return $pdf->download('TNL.pdf');
     }
     public function submitTNL(Request $request){
@@ -243,7 +278,7 @@ class PanelController extends Controller
             $offer->TNL = 2;
             $offer->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new TNLAceptada($offer));
+            Mail::to('contact@bcpbrokers.com')->send(new TNLAceptada($offer));
             return back();
         }else{
             return Redirect::back()->with('status', 'Sorry, we did not find any document to upload, please try again. !');
@@ -280,13 +315,15 @@ class PanelController extends Controller
         $offer = GetOffer::where('user_id',Auth::user()->id)->first();
         $offer->TNL = 2;
         $offer->save();
-
+        $trust = TrustsInfo::where('user_id',$offer->user_id)->first();
+        $pays = Deposit::where('user_id',$offer->user_id)->get();
+        $employee = Employee::find($offer->employee->id);
         $signature = User::find(Auth::user()->id);
 
         if(!isset($request->Withouts)){
             if($signature->PathSignature != null){
                 $data = [
-                    'Seller' => $offer->OwnerName,
+                    'OwnerName' => $offer->OwnerName,
                     'Phone' => $offer->Phone,
                     'Email' => $offer->Email,
                     'Resort' =>  $offer->ResortName,
@@ -297,26 +334,26 @@ class PanelController extends Controller
                     'Maintenance' => $offer->MaintFee,
                     'Exchange' => $offer->exchCompany,
                     'PurchasePrice' => $offer->PurchasePrice,
-                    'Signature' => $signature->PathSignature,
-                    'BrokerSignature' => $offer->employee->Firma,
-                    'BrokerName' => $offer->employee->Name,
+                    'trust' =>$trust,
+                    'IdAgent' => $employee->IdNumber,
+                    'pays'=>$pays,
                 ];
 
-                $pdf = PDF::loadView('panel.tnlPDF', $data);
+                $pdf = PDF::loadView('panel.tnl', $data);
                 Storage::put('public/users/'.$signature->id.'-'.$signature->name.'/TNL.pdf',$pdf->output()) ;
 
                 $files = Files::where('user_id',Auth::user()->id)->first();
                 $files->PathTNL = 'storage/users/'.$signature->id.'-'.$signature->name.'/TNL.pdf';
                 $files->save();
 
-                Mail::to('hawaicincoceronomams@gmail.com')->send(new TNLAceptada());
+                Mail::to('contact@bcpbrokers.com')->send(new TNLAceptada($data));
                 return $pdf->download('TNL');
             }else{
                 return Redirect::back()->with('status', 'Sorry, we did not find your signature in our Database, please try again. !');
             }
         }else{
             $data = [
-                'Seller' => $offer->OwnerName,
+                'OwnerName' => $offer->OwnerName,
                 'Phone' => $offer->Phone,
                 'Email' => $offer->Email,
                 'Resort' =>  $offer->ResortName,
@@ -327,18 +364,19 @@ class PanelController extends Controller
                 'Maintenance' => $offer->MaintFee,
                 'Exchange' => $offer->exchCompany,
                 'PurchasePrice' => $offer->PurchasePrice,
-                'BrokerSignature' => $offer->employee->Firma,
-                'BrokerName' => $offer->employee->Name,
+                'trust' =>$trust,
+                'IdAgent' => $employee->IdNumber,
+                'pays'=>$pays,
             ];
 
-            $pdf = PDF::loadView('panel.tnlPDF', $data);
+            $pdf = PDF::loadView('panel.tnl', $data);
             Storage::put('public/users/'.$signature->id.'-'.$signature->name.'/TNL.pdf',$pdf->output()) ;
 
             $files = Files::where('user_id',Auth::user()->id)->first();
             $files->PathTNL = 'storage/users/'.$signature->id.'-'.$signature->name.'/TNL.pdf';
             $files->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new TNLAceptada());
+            Mail::to('contact@bcpbrokers.com')->send(new TNLAceptada($data));
             return $pdf->download('TNL');
 
         }
@@ -348,24 +386,20 @@ class PanelController extends Controller
     //////////////////////////////////////CONTRACT //////////////////////////////////////////////////7
 
     public function downloadContract(){
-        $offer = GetOffer::where('user_id',Auth::user()->id)->first();
+        $contract = Contract::where('user_id', Auth::user()->id)->first();
         $signature = User::find(Auth::user()->id);
-
         $data = [
-            'Seller' => $offer->OwnerName,
-            'Phone' => $offer->Phone,
-            'Email' => $offer->Email,
-            'Resort' =>  $offer->ResortName,
-            'Location' =>  $offer->Location,
-            'UnitType' =>  $offer->typeRoom,
-            'Registered' =>  $offer->RegWeeks,
-            'PurchasePrice' => $offer->PurchasePrice,
-            'Signature' => $signature->PathSignature,
-            'AddBenefits' => $offer->Benefits,
-            'BrokerSignature' => $offer->employee->Firma,
-            'BrokerName' => $offer->employee->Name,
+            'contract' => $contract,
+            'Signature' => $contract->employee->Firma,
+            'Broker' => $contract->employee->id,
+            'CSignature' => $signature->PathSignature,
         ];
-        $pdf = PDF::loadView('panel.contract', $data);
+
+        if($contract->Idiom == 1 && $contract->Type == 1){
+            $pdf = PDF::loadView('panel.contract-seller',$data);
+        }elseif($contract->Idiom == 1 && $contract->Type == 2){
+            $pdf = PDF::loadView('panel.contract-rental',$data);
+        }
         return $pdf->download('Contract.pdf');
     }
     public function submitContract(Request $request){
@@ -384,7 +418,7 @@ class PanelController extends Controller
             $offer->Contract = 2;
             $offer->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new ContractAceptada($offer));
+            Mail::to('contact@bcpbrokers.com')->send(new ContractAceptada($offer));
             return back();
         }else{
             return Redirect::back()->with('status', 'Sorry, we did not find any document to upload, please try again. !');
@@ -423,34 +457,29 @@ class PanelController extends Controller
         $offer->save();
 
         $signature = User::find(Auth::user()->id);
+        $contract = Contract::where('user_id',Auth::user()->id)->first();
 
-        if($signature->PathSignature != null){
-            $data = [
-                'Seller' => $offer->OwnerName,
-                'Phone' => $offer->Phone,
-                'Email' => $offer->Email,
-                'Resort' =>  $offer->ResortName,
-                'Location' =>  $offer->Location,
-                'UnitType' =>  $offer->typeRoom,
-                'Membership' =>  $offer->membership,
-                'Registered' =>  $offer->RegWeeks.' '.$offer->AdditionalWeek,
-                'Maintenance' => $offer->MaintFee,
-                'Exchange' => $offer->exchCompany,
-                'PurchasePrice' => $offer->PurchasePrice,
-                'Signature' => $signature->PathSignature,
-                'BrokerSignature' => $offer->employee->Firma,
-                'BrokerName' => $offer->employee->Name,
-            ];
+        $data = [
+            'contract' => $contract,
+            'Signature' => $contract->employee->Firma,
+            'Broker' => $contract->employee->id,
+            'CSignature' => $signature->PathSignature,
+        ];
 
-            $pdf = PDF::loadView('panel.contract', $data);
+        if($signature != null){
+            if($contract->Idiom == 1 && $contract->Type == 1){
+                $pdf = PDF::loadView('panel.contract-seller',$data);
+            }elseif($contract->Idiom == 1 && $contract->Type == 2){
+                $pdf = PDF::loadView('panel.contract-rental',$data);
+            }
             Storage::put('public/users/'.$signature->id.'-'.$signature->name.'/Contract.pdf',$pdf->output()) ;
 
             $files = Files::where('user_id',Auth::user()->id)->first();
             $files->PathContract = 'storage/users/'.$signature->id.'-'.$signature->name.'/Contract.pdf';
             $files->save();
 
-            Mail::to('hawaicincoceronomams@gmail.com')->send(new ContractAceptada());
-            return $pdf->download('Contract-BCPrimer');
+            Mail::to('contact@bcpbrokers.com')->send(new ContractAceptada($data));
+            return $pdf->download('Contract-BCPrime');
         }else{
             return Redirect::back()->with('status', 'Sorry, we did not find your signature in our Database, please try again. !');
         }
