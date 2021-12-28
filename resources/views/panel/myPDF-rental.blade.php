@@ -112,7 +112,7 @@
     <div class="flexrow" >
         <div style="text-align: center; font-family: Logo; font-size: 9.5px; line-height: 10px; letter-spacing: 1px; font-weight: 1px; padding: 5px 0;">
             <label>199 Water Street, New Yor, NY, 10038</label> <br>
-            <label>Phone: </label> (212) 4611062<br>
+            <label>Phone: </label> (212) 372 7173<br>
             <label>Fax: </label> (212) 658-9545<br>
             <label><a href="www.bcpbrokers.com">www.bcpbrokers.com</a></label> <br>
             <label>contact@bcpbrokers.com</label> <br>
@@ -255,7 +255,7 @@
     <div style="text-align: center; font-family: Logo; font-size: 8px; line-height: 8px;">
         <br>
         <label >199 Water Street, New Yor, NY, 10038</label> <br>
-        <label >Phone: (212) 4611062</label> <br>
+        <label >Phone: (212) 372 7173</label> <br>
         <label >Fax: (212) 658-9545</label> <br>
         <label ><a href="www.bcpbrokers.com">www.bcpbrokers.com</a></label> <br>
         <label >contact@businessconsultantprimebrokers.com</label> <br>

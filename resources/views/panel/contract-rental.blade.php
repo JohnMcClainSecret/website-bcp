@@ -119,7 +119,7 @@
             <div class="col-md-6" style="font-family: Logo; font-size: 10px; line-height: 12px; margin: 0px 40px; text-align: center">
                 {{-- <div style="margin-left: 30px"> --}}
                 <label>199 Water Street, New Yor, NY, 10038</label> <br>
-                <label>Phone:  (212) 4611062 </label> <br>
+                <label>Phone:  (212) 372 7173 </label> <br>
                 <label>Fax:  (212) 658-9545 </label> <br>
                 <label><a href="www.bcpbrokers.com">www.bcpbrokers.com</a></label> <br>
                 <label>contact@bcpbrokers.com</label>

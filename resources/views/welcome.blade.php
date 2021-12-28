@@ -223,7 +223,7 @@
               <div class="info-box ">
                 <i class="bx bx-phone-call"></i>
                 <h3>Call Us</h3>
-                <p>(212) 461-1062</p>(212) 658-9545</p>
+                <p>(212) 372 71 73 </p>(212) 658-9545</p>
               </div>
             </div>
 

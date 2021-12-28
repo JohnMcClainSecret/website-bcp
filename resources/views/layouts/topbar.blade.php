@@ -4,7 +4,7 @@
       <div class="contact-info float-left">
 
         <i class="icofont-envelope"></i><a href="mailto:contact@example.com">contact@businessconsultantprimebrokers.com</a>
-        <i class="icofont-phone">212 4611062</i>
+        <i class="icofont-phone">(212) 372 71 73 </i>
       </div>
     </div>
   </section>
