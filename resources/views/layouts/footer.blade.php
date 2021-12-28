@@ -9,7 +9,7 @@
             <p>
               ONE SEAPORT PLAZA <br>
               199 Water Street, New York, New York, 10038<br><br>
-              <strong>Phone:</strong> (212) 372 71 73<br>
+              <strong>Phone:</strong> (212) 372 71 73/  (212) 461 1062<br>
               <strong>FAX:</strong> (212) 658-9545 <br>
               <strong>Email:</strong> contact@bcpbrokers.com <br>
             </p>
